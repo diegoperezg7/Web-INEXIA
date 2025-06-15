@@ -50,7 +50,7 @@ export function CtaButton({ text, className = "" }: CtaButtonProps) {
         {isLoading ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin inline" />
-            Cargando...
+            Enviando...
           </>
         ) : (
           text

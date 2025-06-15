@@ -4,30 +4,15 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { MenuBar } from "@/components/menu-bar"
-import {
-  ArrowRight,
-  CheckCircle2,
-  Clock,
-  TrendingUp,
-  Zap,
-  ChevronDown,
-  Users,
-  Bot,
-  Briefcase,
-  BarChart3,
-  MessageSquare,
-  FileText,
-  Shield,
-  X,
-} from "lucide-react"
+import { ArrowRight, CheckCircle2, Clock, TrendingUp, Zap, ChevronDown, Users, Bot, Briefcase, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import ParticlesBackground from "@/components/particles-background"
 import { HeroGlow } from "@/components/hero-glow"
 import { ServiceCard } from "@/components/service-card"
-import { AgentCard } from "@/components/agent-card"
 import { StatCard } from "@/components/stat-card"
 import { ContactForm } from "@/components/contact-form"
 import { CtaButton } from "@/components/cta-button"
+import { AgentCarouselPro } from "@/components/agent-carousel-pro"
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("hero")
@@ -69,11 +54,11 @@ export default function Home() {
           <div className="flex items-center">
             <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
               <Image
-                src="/logo.png"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
                 alt="NeuraX"
-                width={80}
-                height={80}
-                className="h-20 w-auto object-contain transition-all duration-300"
+                width={120}
+                height={120}
+                className="h-16 w-auto object-contain transition-all duration-300"
               />
             </motion.div>
           </div>
@@ -95,7 +80,7 @@ export default function Home() {
               }
             }}
           >
-            <span className="relative z-10">Solicitar Demo</span>
+            <span className="relative z-10">Solicitar Información</span>
             <ArrowRight className="ml-2 h-4 w-4 relative z-10 group-hover:translate-x-1 transition-transform" />
             <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
           </Button>
@@ -183,7 +168,7 @@ export default function Home() {
                   }
                 }}
               >
-                <span className="relative z-10">Solicitar Demo</span>
+                <span className="relative z-10">Solicitar Información</span>
                 <ArrowRight className="ml-2 h-4 w-4 relative z-10 group-hover:translate-x-1 transition-transform" />
                 <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
               </Button>
@@ -201,6 +186,21 @@ export default function Home() {
         <HeroGlow />
 
         <motion.div className="container mx-auto px-4 py-20 text-center z-10" style={{ opacity, scale }}>
+          <motion.div
+            className="flex justify-center mb-8"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+          >
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview%20%281%29-qLXLYtKBm5sRI372qiQPuuVWV3nz9V.png"
+              alt="NeuraX Logo"
+              width={120}
+              height={120}
+              className="w-20 h-20 md:w-28 md:h-28 object-contain"
+            />
+          </motion.div>
+
           <motion.h1
             className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-zinc-300 tracking-tight"
             initial={{ opacity: 0, y: 20 }}
@@ -232,7 +232,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <CtaButton text="Solicita una demo gratuita" className="size-lg" />
+            <CtaButton text="Solicita información gratuita" className="size-lg" />
 
             <Button
               variant="outline"
@@ -248,7 +248,7 @@ export default function Home() {
                 }
               }}
             >
-              <span className="relative z-10">Descubre tu Solución</span>
+              <span className="relative z-10">Ver Agentes</span>
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
             </Button>
           </motion.div>
@@ -260,16 +260,7 @@ export default function Home() {
             transition={{ duration: 1, delay: 0.8 }}
           >
             <div className="aspect-video bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur rounded-xl border border-blue-500/20 flex items-center justify-center relative overflow-hidden group">
-              {/* Decorative elements */}
               <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:16px_16px]"></div>
-              <div className="absolute -right-10 -top-10 w-40 h-40 bg-blue-500/10 rounded-full blur-xl group-hover:bg-blue-500/20 transition-all duration-700"></div>
-              <div className="absolute -left-10 -bottom-10 w-40 h-40 bg-purple-500/10 rounded-full blur-xl group-hover:bg-purple-500/20 transition-all duration-700"></div>
-
-              {/* Decorative corner accents */}
-              <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-blue-500/30 rounded-tl"></div>
-              <div className="absolute top-4 right-4 w-4 h-4 border-t-2 border-r-2 border-blue-500/30 rounded-tr"></div>
-              <div className="absolute bottom-4 left-4 w-4 h-4 border-b-2 border-l-2 border-blue-500/30 rounded-bl"></div>
-              <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-blue-500/30 rounded-br"></div>
 
               <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-6">
                 <motion.div
@@ -277,7 +268,6 @@ export default function Home() {
                   whileHover={{ scale: 1.03 }}
                   transition={{ duration: 0.3 }}
                 >
-                  {/* Cambiamos a una imagen directa en lugar de usar Next.js Image para evitar problemas de optimización */}
                   <img
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura_de_pantalla_2025-04-12_115537-removebg-preview%20%281%29-Y9mMLvfvsD4U6yEFAGjItyStnF1prK.png"
                     alt="Flujo de trabajo de automatización NeuraX"
@@ -306,9 +296,6 @@ export default function Home() {
       <section id="benefits" className="py-20 relative z-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 relative">
-            {/* Decorative elements */}
-            <div className="absolute left-1/2 -top-10 w-40 h-40 bg-blue-500/5 rounded-full blur-xl -translate-x-1/2"></div>
-
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight">
               Resultados Extraordinarios Garantizados
             </h2>
@@ -342,10 +329,7 @@ export default function Home() {
           </div>
 
           <div className="text-center relative">
-            {/* Decorative elements */}
-            <div className="absolute left-1/2 -bottom-10 w-40 h-40 bg-purple-500/5 rounded-full blur-xl -translate-x-1/2"></div>
-
-            <h3 className="text-2xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 text-transparent bg-clip-text animate-pulse relative z-10 tracking-tight">
+            <h3 className="text-2xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 text-transparent bg-clip-text relative z-10 tracking-tight">
               Menos código. Más impacto. Implementación exprés.
             </h3>
 
@@ -374,9 +358,6 @@ export default function Home() {
       <section id="services" className="py-20 relative z-10 bg-gradient-to-b from-transparent to-blue-950/10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 relative">
-            {/* Decorative elements */}
-            <div className="absolute left-1/2 -top-10 w-40 h-40 bg-blue-500/5 rounded-full blur-xl -translate-x-1/2"></div>
-
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight">
               Tecnología Revolucionaria a tu Alcance
             </h2>
@@ -418,171 +399,205 @@ export default function Home() {
         </div>
       </section>
 
-      {/* AI Agents Section */}
+      {/* Agents Section */}
       <section id="agents" className="py-20 relative z-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 relative">
-            {/* Decorative elements */}
-            <div className="absolute left-1/2 -top-10 w-40 h-40 bg-purple-500/5 rounded-full blur-xl -translate-x-1/2"></div>
-
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight">
-              Agentes Inteligentes
+              Nuestros Agentes de IA
             </h2>
             <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6"></div>
             <p className="text-xl text-blue-100/70 max-w-2xl mx-auto relative z-10">
-              Nuestros agentes de IA especializados automatizan tareas específicas de tu negocio
+              Cada agente está diseñado para resolver problemas específicos de tu industria
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <AgentCard
-              icon={<Users className="h-10 w-10" />}
-              name="TalentBot"
-              description="Automatiza procesos de reclutamiento y onboarding"
-              stats={[
-                { label: "Tiempo de contratación", value: "-40%" },
-                { label: "Satisfacción candidatos", value: "+25%" },
-              ]}
-              gradient="from-blue-600 to-blue-400"
-            />
-
-            <AgentCard
-              icon={<MessageSquare className="h-10 w-10" />}
-              name="ClientCare AI"
-              description="Asistente de atención al cliente 24/7 con respuestas personalizadas"
-              stats={[
-                { label: "Tiempo de respuesta", value: "-85%" },
-                { label: "Satisfacción cliente", value: "+30%" },
-              ]}
-              gradient="from-purple-600 to-blue-400"
-            />
-
-            <AgentCard
-              icon={<BarChart3 className="h-10 w-10" />}
-              name="FinanceFlow"
-              description="Automatiza facturación, pagos y reportes financieros"
-              stats={[
-                { label: "Tiempo administrativo", value: "-60%" },
-                { label: "Precisión", value: "+99.5%" },
-              ]}
-              gradient="from-blue-400 to-purple-600"
-            />
-
-            <AgentCard
-              icon={<TrendingUp className="h-10 w-10" />}
-              name="MarketingWise"
-              description="Optimiza campañas y genera contenido automáticamente"
-              stats={[
-                { label: "ROI campañas", value: "+35%" },
-                { label: "Tiempo creación", value: "-70%" },
-              ]}
-              gradient="from-purple-400 to-blue-600"
-            />
-
-            <AgentCard
-              icon={<FileText className="h-10 w-10" />}
-              name="OfficeAssist"
-              description="Automatiza tareas administrativas y gestión documental"
-              stats={[
-                { label: "Productividad", value: "+45%" },
-                { label: "Errores", value: "-90%" },
-              ]}
-              gradient="from-blue-600 to-purple-400"
-            />
-
-            <AgentCard
-              icon={<Shield className="h-10 w-10" />}
-              name="LegalAssist"
-              description="Genera y revisa documentos legales automáticamente"
-              stats={[
-                { label: "Tiempo revisión", value: "-75%" },
-                { label: "Cumplimiento", value: "+99%" },
-              ]}
-              gradient="from-purple-600 to-blue-400"
-            />
-          </div>
+          <AgentCarouselPro />
         </div>
       </section>
 
       {/* CTA Section */}
       <section id="cta" className="py-20 relative z-10 bg-gradient-to-b from-transparent to-blue-950/20">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto bg-gradient-to-br from-blue-900/40 to-purple-900/20 backdrop-blur-sm rounded-2xl border border-blue-500/20 p-8 md:p-12 relative overflow-hidden">
-            {/* Decorative elements */}
-            <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:16px_16px] rounded-2xl"></div>
-            <div className="absolute -right-20 -top-20 w-60 h-60 bg-blue-500/10 rounded-full blur-xl"></div>
-            <div className="absolute -left-20 -bottom-20 w-60 h-60 bg-purple-500/10 rounded-full blur-xl"></div>
+          <div className="max-w-6xl mx-auto relative">
+            {/* Header Section */}
+            <div className="text-center mb-16 relative z-10">
+              <motion.div
+                className="inline-block mb-4"
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-full px-6 py-2 border border-blue-500/30">
+                  <span className="text-blue-300 text-sm font-medium">🚀 Transformación Digital</span>
+                </div>
+              </motion.div>
 
-            {/* Decorative corner accents */}
-            <div className="absolute top-6 left-6 w-6 h-6 border-t-2 border-l-2 border-blue-500/30 rounded-tl"></div>
-            <div className="absolute top-6 right-6 w-6 h-6 border-t-2 border-r-2 border-blue-500/30 rounded-tr"></div>
-            <div className="absolute bottom-6 left-6 w-6 h-6 border-b-2 border-l-2 border-blue-500/30 rounded-bl"></div>
-            <div className="absolute bottom-6 right-6 w-6 h-6 border-b-2 border-r-2 border-blue-500/30 rounded-br"></div>
-
-            <div className="text-center mb-10 relative z-10">
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text tracking-tight">
+              <motion.h2
+                className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text tracking-tight"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 ¿Cuánto tiempo más vas a perder haciendo lo mismo a mano?
-              </h2>
-              <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6"></div>
-              <p className="text-xl text-blue-100/70 max-w-2xl mx-auto">
+              </motion.h2>
+
+              <motion.div
+                className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6"
+                initial={{ width: 0 }}
+                whileInView={{ width: "5rem" }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              />
+
+              <motion.p
+                className="text-xl text-blue-100/70 max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
                 Automatiza tus procesos con IA y multiplica la productividad de tu equipo
-              </p>
+              </motion.p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
-              <div>
-                <ContactForm />
-              </div>
+            {/* Main Content Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              {/* Left Column - Contact Form */}
+              <motion.div
+                className="relative"
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <div className="bg-gradient-to-br from-blue-900/40 to-purple-900/20 backdrop-blur-sm rounded-2xl border border-blue-500/20 p-8 relative overflow-hidden">
+                  <div className="relative z-10">
+                    <h3 className="text-2xl font-bold mb-2 text-white">Solicita Información Gratuita</h3>
+                    <p className="text-blue-200/70 mb-6">
+                      Descubre cómo la IA puede transformar tu negocio en menos de 30 minutos
+                    </p>
+                    <ContactForm />
+                  </div>
+                </div>
+              </motion.div>
 
-              <div className="flex flex-col justify-center">
-                <div className="bg-blue-900/20 backdrop-blur-sm rounded-xl border border-blue-500/10 p-6 mb-6 relative overflow-hidden group">
-                  {/* Decorative elements */}
-                  <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:16px_16px] rounded-xl"></div>
-                  <div className="absolute -right-10 -top-10 w-20 h-20 bg-blue-500/5 rounded-full blur-lg group-hover:bg-blue-500/10 transition-all duration-700"></div>
-                  <div className="absolute -left-10 -bottom-10 w-20 h-20 bg-purple-500/5 rounded-full blur-lg group-hover:bg-purple-500/10 transition-all duration-700"></div>
+              {/* Right Column - Benefits & Features */}
+              <motion.div
+                className="space-y-6"
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                {/* Benefits Card */}
+                <div className="bg-gradient-to-br from-blue-900/30 to-purple-900/10 backdrop-blur-sm rounded-xl border border-blue-500/20 p-6 relative overflow-hidden group">
+                  <div className="relative z-10">
+                    <div className="flex items-center mb-4">
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-600 to-purple-600 flex items-center justify-center mr-4">
+                        <Zap className="h-6 w-6 text-white" />
+                      </div>
+                      <h3 className="text-xl font-semibold text-blue-300">Beneficios Inmediatos</h3>
+                    </div>
 
-                  {/* Decorative corner accents */}
-                  <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-blue-500/30 rounded-tl"></div>
-                  <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-blue-500/30 rounded-tr"></div>
-                  <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-blue-500/30 rounded-bl"></div>
-                  <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-blue-500/30 rounded-br"></div>
-
-                  <h3 className="text-xl font-semibold mb-4 text-blue-300 relative z-10">Beneficios inmediatos</h3>
-                  <ul className="space-y-3 relative z-10">
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-blue-400 mr-2 mt-0.5" />
-                      <span>Implementación en días, no en meses</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-blue-400 mr-2 mt-0.5" />
-                      <span>Sin necesidad de conocimientos técnicos</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-blue-400 mr-2 mt-0.5" />
-                      <span>ROI medible desde la primera semana</span>
-                    </li>
-                    <li className="flex items-start">
-                      <CheckCircle2 className="h-5 w-5 text-blue-400 mr-2 mt-0.5" />
-                      <span>Escalable según tus necesidades</span>
-                    </li>
-                  </ul>
+                    <ul className="space-y-3">
+                      {[
+                        "Implementación en días, no en meses",
+                        "Sin necesidad de conocimientos técnicos",
+                        "ROI medible desde la primera semana",
+                        "Escalable según tus necesidades",
+                      ].map((benefit, index) => (
+                        <motion.li
+                          key={index}
+                          className="flex items-start"
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
+                        >
+                          <CheckCircle2 className="h-5 w-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" />
+                          <span className="text-blue-100/80">{benefit}</span>
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
-                <div className="flex gap-4">
-                  <CtaButton text="Solicita Demo" className="flex-1" />
-
-                  <Button variant="outline" size="lg" />
-
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="flex-1 border-blue-500/50 text-blue-400 hover:bg-blue-950/30 hover:text-blue-300 relative overflow-hidden group"
-                  >
-                    <span className="relative z-10">Habla con un Experto</span>
-                    <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
-                  </Button>
+                {/* Stats Cards */}
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    { icon: Clock, label: "Tiempo ahorrado", value: "30%", color: "blue" },
+                    { icon: TrendingUp, label: "Productividad", value: "+40%", color: "purple" },
+                  ].map((stat, index) => (
+                    <motion.div
+                      key={index}
+                      className="bg-gradient-to-br from-blue-900/30 to-purple-900/10 backdrop-blur-sm rounded-xl border border-blue-500/20 p-4 relative overflow-hidden group"
+                      initial={{ opacity: 0, y: 20 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.6, delay: 0.8 + index * 0.1 }}
+                      whileHover={{ y: -5 }}
+                    >
+                      <div className="relative z-10">
+                        <div className="flex items-center mb-2">
+                          <stat.icon className={`h-5 w-5 text-${stat.color}-400 mr-2`} />
+                          <span className="text-sm text-blue-200/70">{stat.label}</span>
+                        </div>
+                        <p className={`text-2xl font-bold text-${stat.color}-300`}>{stat.value}</p>
+                      </div>
+                    </motion.div>
+                  ))}
                 </div>
-              </div>
+
+                {/* Call to Action */}
+                <motion.div
+                  className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-xl border border-blue-500/30 p-6 text-center relative overflow-hidden"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 1 }}
+                >
+                  <div className="relative z-10">
+                    <h4 className="text-lg font-semibold text-white mb-2">¿Tienes dudas?</h4>
+                    <p className="text-blue-200/70 mb-4">Habla directamente con nuestros expertos</p>
+                    <Button
+                      variant="outline"
+                      className="border-blue-500/50 text-blue-400 hover:bg-blue-950/30 hover:text-blue-300 relative overflow-hidden group"
+                    >
+                      <span className="relative z-10">Consulta Gratuita</span>
+                      <ArrowRight className="ml-2 h-4 w-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+                    </Button>
+                  </div>
+                </motion.div>
+
+                {/* Trust Indicators */}
+                <motion.div
+                  className="text-center"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: 1.2 }}
+                >
+                  <p className="text-blue-200/60 text-sm mb-3">Respuesta garantizada en menos de 24 horas</p>
+                  <div className="flex justify-center items-center space-x-4">
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-green-400 rounded-full mr-2"></div>
+                      <span className="text-xs text-blue-300/70">Consulta gratuita</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full mr-2"></div>
+                      <span className="text-xs text-blue-300/70">Sin compromiso</span>
+                    </div>
+                    <div className="flex items-center">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full mr-2"></div>
+                      <span className="text-xs text-blue-300/70">100% personalizado</span>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -594,7 +609,13 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center text-center">
             {/* Logo */}
             <div className="mb-4">
-              <Image src="/logo.png" alt="NeuraX Logo" width={80} height={80} className="mx-auto" />
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
+                alt="NeuraX Logo"
+                width={80}
+                height={80}
+                className="mx-auto"
+              />
               <h3 className="text-xl font-bold mt-2 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
                 Agencia de Inteligencia Artificial NeuraX
               </h3>

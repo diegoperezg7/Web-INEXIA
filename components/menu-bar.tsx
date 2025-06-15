@@ -2,7 +2,7 @@
 
 import type * as React from "react"
 import { motion } from "framer-motion"
-import { Home, BarChart3, Bot, Users } from "lucide-react"
+import { Home, BarChart3, Bot, Users, MessageSquare } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 
@@ -42,6 +42,13 @@ const menuItems: MenuItem[] = [
     href: "#agents",
     gradient: "radial-gradient(circle, rgba(249,115,22,0.15) 0%, rgba(234,88,12,0.06) 50%, rgba(194,65,12,0) 100%)",
     iconColor: "text-orange-500",
+  },
+  {
+    icon: <MessageSquare className="h-5 w-5" />,
+    label: "Contacto",
+    href: "#cta",
+    gradient: "radial-gradient(circle, rgba(34,197,94,0.15) 0%, rgba(22,163,74,0.06) 50%, rgba(21,128,61,0) 100%)",
+    iconColor: "text-green-500",
   },
 ]
 
