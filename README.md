@@ -1,30 +1,30 @@
-# NeuraX landing page
+# NeuraX Landing Page
 
-*Automatically synced with your [v0.dev](https://v0.dev) deployments*
+Esta es la landing page de NeuraX, un proyecto diseñado para presentar y promocionar los servicios y valores de NeuraX de forma atractiva y moderna.
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/diegoperezgarc-gmailcoms-projects/v0-neura-x-landing-page)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.dev-black?style=for-the-badge)](https://v0.dev/chat/projects/4X2TCwdcudm)
+## Descripción
 
-## Overview
+NeuraX es una plataforma innovadora orientada a una Agencia de Inteligencia Artificial y automatización de procesos y tareas repetitivas. Esta landing page tiene como objetivo captar la atención de los visitantes, explicar los beneficios de NeuraX y facilitar el contacto o la conversión de usuarios interesados.
 
-This repository will stay in sync with your deployed chats on [v0.dev](https://v0.dev).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.dev](https://v0.dev).
+## Características principales
 
-## Deployment
+- Diseño responsivo y moderno.
+- Secciones informativas sobre los servicios/productos de NeuraX.
+- Integración con formularios de contacto.
+- Animaciones y elementos visuales atractivos.
+- Optimización para SEO y redes sociales.
 
-Your project is live at:
+## Tecnologías utilizadas
 
-**[https://vercel.com/diegoperezgarc-gmailcoms-projects/v0-neura-x-landing-page](https://vercel.com/diegoperezgarc-gmailcoms-projects/v0-neura-x-landing-page)**
+- [Ejemplo: React, Next.js, Tailwind CSS, etc.]
+- [Enumera las tecnologías principales que utilizaste en el desarrollo]
 
-## Build your app
+## Contribuciones
 
-Continue building your app on:
+Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request para sugerir cambios o mejoras.
 
-**[https://v0.dev/chat/projects/4X2TCwdcudm](https://v0.dev/chat/projects/4X2TCwdcudm)**
+## Licencia
 
-## How It Works
+[Indica aquí la licencia del proyecto, por ejemplo: MIT]
 
-1. Create and modify your project using [v0.dev](https://v0.dev)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+---
