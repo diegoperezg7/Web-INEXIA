@@ -22,4 +22,3 @@ NeuraX es una plataforma innovadora orientada a una Agencia de Inteligencia Arti
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request para sugerir cambios o mejoras.
-
