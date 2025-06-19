@@ -1,6 +1,6 @@
 "use client"
 
-import type { ReactNode } from "react"
+import { useEffect, useState, type ReactNode } from "react"
 import { motion } from "framer-motion"
 
 interface StatCardProps {
@@ -11,60 +11,99 @@ interface StatCardProps {
 }
 
 export function StatCard({ icon, title, value, description }: StatCardProps) {
+  // Animación de conteo para el valor si es numérico
+  const [displayValue, setDisplayValue] = useState(value)
+  useEffect(() => {
+    if (/^[+-]?\d+%?$/.test(value)) {
+      let start = 0
+      let end = parseInt(value)
+      let isPercent = value.includes("%")
+      let prefix = value.startsWith("-") ? "-" : value.startsWith("+") ? "+" : ""
+      let absEnd = Math.abs(end)
+      let duration = 800
+      let startTime: number | null = null
+      function animate(ts: number) {
+        if (!startTime) startTime = ts
+        let progress = Math.min((ts - startTime) / duration, 1)
+        let current = Math.round(absEnd * progress)
+        setDisplayValue(`${prefix}${current}${isPercent ? "%" : ""}`)
+        if (progress < 1) requestAnimationFrame(animate)
+      }
+      setDisplayValue(`${prefix}0${isPercent ? "%" : ""}`)
+      requestAnimationFrame(animate)
+    } else {
+      setDisplayValue(value)
+    }
+  }, [value])
+
   return (
     <motion.div
-      className="bg-gradient-to-br from-blue-900/40 to-blue-900/10 backdrop-blur-sm rounded-xl border border-blue-500/20 p-6 relative overflow-hidden group"
-      whileHover={{ y: -5, transition: { duration: 0.2 } }}
+      className="bg-gradient-to-br from-blue-900/60 to-purple-900/30 backdrop-blur-xl rounded-2xl border-2 border-blue-500/30 p-8 relative overflow-visible group shadow-2xl hover:shadow-blue-500/30 transition-shadow duration-500"
+      whileHover={{ y: -8, scale: 1.04, boxShadow: "0 0 40px 8px #6366f1aa" }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      {/* Decorative elements */}
-      <div className="absolute -right-6 -top-6 w-16 h-16 bg-blue-500/10 rounded-full blur-lg group-hover:bg-blue-500/20 transition-all duration-700"></div>
-      <div className="absolute -left-6 -bottom-6 w-16 h-16 bg-purple-500/10 rounded-full blur-lg group-hover:bg-purple-500/20 transition-all duration-700"></div>
-
-      {/* Decorative grid pattern */}
-      <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:16px_16px] rounded-xl"></div>
-
-      {/* Decorative corner accents */}
-      <div className="absolute top-2 left-2 w-2 h-2 border-t border-l border-blue-500/30 rounded-tl"></div>
-      <div className="absolute top-2 right-2 w-2 h-2 border-t border-r border-blue-500/30 rounded-tr"></div>
-      <div className="absolute bottom-2 left-2 w-2 h-2 border-b border-l border-blue-500/30 rounded-bl"></div>
-      <div className="absolute bottom-2 right-2 w-2 h-2 border-b border-r border-blue-500/30 rounded-br"></div>
-
-      <div className="flex items-center mb-4 relative z-10">
-        <motion.div
-          className="mr-4 relative"
-          whileHover={{ rotate: 5, scale: 1.1 }}
-          transition={{ type: "spring", stiffness: 400, damping: 10 }}
-        >
-          {icon}
-          <div className="absolute -inset-2 bg-blue-500/10 rounded-full blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </motion.div>
-        <h3 className="text-lg font-semibold text-white group-hover:text-blue-200 transition-colors duration-300">
-          {title}
-        </h3>
-      </div>
-
-      <div className="ml-12 relative z-10">
-        <div className="relative">
-          <p className="text-3xl font-bold text-white mb-2 group-hover:text-blue-200 transition-colors duration-300">
-            {value}
-          </p>
-          <div className="h-1 w-10 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full group-hover:w-3/4 transition-all duration-300"></div>
+      {/* Partículas decorativas */}
+      <motion.div
+        className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-24 bg-blue-400/10 rounded-full blur-2xl z-0 animate-pulse"
+        animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }}
+        transition={{ duration: 3, repeat: Infinity }}
+      />
+      <motion.div
+        className="absolute -bottom-8 right-1/2 translate-x-1/2 w-24 h-24 bg-purple-400/10 rounded-full blur-2xl z-0 animate-pulse"
+        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 3, repeat: Infinity, delay: 1 }}
+      />
+      {/* Glow animado al pasar el mouse */}
+      <motion.div
+        className="absolute inset-0 rounded-2xl pointer-events-none"
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+        animate={{
+          background:
+            "radial-gradient(circle at 60% 40%, rgba(99,102,241,0.15) 0%, transparent 70%)",
+        }}
+        transition={{ duration: 0.5 }}
+      />
+      {/* Esquinas decoradas */}
+      <div className="absolute top-2 left-2 w-3 h-3 bg-gradient-to-br from-blue-400/60 to-purple-400/40 rounded-full blur-sm animate-pulse" />
+      <div className="absolute top-2 right-2 w-2 h-2 bg-blue-400/40 rounded-full blur-sm animate-pulse" />
+      <div className="absolute bottom-2 left-2 w-2 h-2 bg-purple-400/40 rounded-full blur-sm animate-pulse" />
+      <div className="absolute bottom-2 right-2 w-3 h-3 bg-gradient-to-br from-purple-400/60 to-blue-400/40 rounded-full blur-sm animate-pulse" />
+      {/* Ícono grande y brillante */}
+      <motion.div
+        className="flex items-center justify-center mb-6 relative z-10"
+        whileHover={{ rotate: 8, scale: 1.18 }}
+        transition={{ type: "spring", stiffness: 300, damping: 12 }}
+      >
+        <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500/30 to-purple-500/20 shadow-lg shadow-blue-500/20 border border-blue-400/20">
+          <span className="text-4xl md:text-5xl text-blue-300 drop-shadow-lg animate-pulse-slow">{icon}</span>
         </div>
-        <p className="text-blue-100/70 mt-2 group-hover:text-blue-100/90 transition-colors duration-300">
-          {description}
-        </p>
-      </div>
-
-      {/* Decorative dots */}
-      <div className="absolute bottom-3 right-3 flex space-x-1">
-        <div className="w-1 h-1 rounded-full bg-blue-400/40"></div>
-        <div className="w-1 h-1 rounded-full bg-purple-400/40"></div>
-        <div className="w-1 h-1 rounded-full bg-blue-400/40"></div>
-      </div>
+      </motion.div>
+      {/* Título */}
+      <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-blue-200 transition-colors duration-300 z-10">
+        {title}
+      </h3>
+      {/* Valor animado */}
+      <motion.p
+        className="text-5xl font-extrabold text-white text-center mb-2 group-hover:text-blue-200 transition-colors duration-300 z-10 drop-shadow-lg"
+        animate={{ scale: [1, 1.08, 1], textShadow: [
+          "0 0 16px #6366f1cc, 0 0 32px #a78bfa88",
+          "0 0 32px #6366f1cc, 0 0 48px #a78bfa88",
+          "0 0 16px #6366f1cc, 0 0 32px #a78bfa88"
+        ] }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        {displayValue}
+      </motion.p>
+      {/* Línea decorativa */}
+      <div className="h-1 w-16 mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-full group-hover:w-3/4 transition-all duration-300 z-10" />
+      {/* Descripción */}
+      <p className="text-blue-100/80 mt-4 text-center text-lg group-hover:text-blue-100/90 transition-colors duration-300 z-10">
+        {description}
+      </p>
     </motion.div>
   )
 }

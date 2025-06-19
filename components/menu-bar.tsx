@@ -1,7 +1,7 @@
 "use client"
 
 import type * as React from "react"
-import { motion } from "framer-motion"
+import { motion, easeInOut, spring } from "framer-motion"
 import { Home, BarChart3, Bot, Users, MessageSquare } from "lucide-react"
 import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
@@ -68,8 +68,8 @@ const glowVariants = {
     opacity: 1,
     scale: 2,
     transition: {
-      opacity: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
-      scale: { duration: 0.5, type: "spring", stiffness: 300, damping: 25 },
+      opacity: { duration: 0.5, ease: easeInOut },
+      scale: { duration: 0.5, type: spring, stiffness: 300, damping: 25 },
     },
   },
 }
@@ -80,13 +80,13 @@ const navGlowVariants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: [0.4, 0, 0.2, 1],
+      ease: easeInOut,
     },
   },
 }
 
 const sharedTransition = {
-  type: "spring",
+  type: spring,
   stiffness: 100,
   damping: 20,
   duration: 0.5,
@@ -95,6 +95,11 @@ const sharedTransition = {
 export function MenuBar() {
   const { theme } = useTheme()
   const [activeSection, setActiveSection] = useState("hero")
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   // Detectar la sección activa al hacer scroll
   useEffect(() => {
@@ -137,14 +142,16 @@ export function MenuBar() {
       initial="initial"
       whileHover="hover"
     >
-      <motion.div
-        className={`absolute -inset-2 bg-gradient-radial from-transparent ${
-          isDarkTheme
-            ? "via-blue-400/30 via-30% via-purple-400/30 via-60% via-blue-400/30 via-90%"
-            : "via-blue-400/20 via-30% via-purple-400/20 via-60% via-blue-400/20 via-90%"
-        } to-transparent rounded-3xl z-0 pointer-events-none`}
-        variants={navGlowVariants}
-      />
+      {mounted && (
+        <motion.div
+          className={`absolute -inset-2 bg-gradient-radial from-transparent ${
+            isDarkTheme
+              ? "via-blue-400/30 via-30% via-purple-400/30 via-60% via-blue-400/30 via-90%"
+              : "via-blue-400/20 via-30% via-purple-400/20 via-60% via-blue-400/20 via-90%"
+          } to-transparent rounded-3xl z-0 pointer-events-none`}
+          variants={navGlowVariants}
+        />
+      )}
       <ul className="flex items-center gap-1 relative z-10">
         {menuItems.map((item, index) => (
           <motion.li key={item.label} className="relative">

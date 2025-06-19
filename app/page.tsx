@@ -355,7 +355,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 relative z-10 bg-gradient-to-b from-transparent to-blue-950/10">
+      <section id="services" className="py-20 relative z-10 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 relative">
             <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight">
@@ -373,6 +373,17 @@ export default function Home() {
               title="Consultoría Estratégica"
               description="Analizamos tu negocio para identificar oportunidades de automatización e IA"
               gradient="from-blue-600 to-blue-400"
+              example={{
+                title: "Caso real: Optimización de procesos en eCommerce",
+                description: "Identificamos cuellos de botella y automatizamos la gestión de pedidos y atención al cliente.",
+                bullets: [
+                  "Análisis de procesos y detección de tareas repetitivas.",
+                  "Propuesta de automatización personalizada.",
+                  "Implementación de bots para atención 24/7.",
+                  "Ahorro de 40h/mes en tareas manuales."
+                ],
+                resultado: "El cliente redujo un 35% los costes operativos y mejoró la satisfacción de sus clientes en 2 meses."
+              }}
             />
 
             <ServiceCard
@@ -380,6 +391,17 @@ export default function Home() {
               title="Agentes IA Especializados"
               description="Desarrollamos asistentes inteligentes adaptados a tus necesidades específicas"
               gradient="from-purple-600 to-blue-400"
+              example={{
+                title: "Ejemplo: Asistente de WhatsApp para clínicas",
+                description: "Un agente IA gestiona reservas, recordatorios y dudas de pacientes por WhatsApp.",
+                bullets: [
+                  "Responde automáticamente a preguntas frecuentes.",
+                  "Gestiona y confirma citas en tiempo real.",
+                  "Envía recordatorios y encuestas post-visita.",
+                  "Integración con Google Calendar y CRM."
+                ],
+                resultado: "Reducción del 60% en llamadas y ausencias, y aumento de la satisfacción del paciente."
+              }}
             />
 
             <ServiceCard
@@ -387,6 +409,17 @@ export default function Home() {
               title="Automatización No-Code"
               description="Implementamos flujos de trabajo automatizados sin necesidad de programación"
               gradient="from-blue-400 to-purple-600"
+              example={{
+                title: "Ejemplo: Automatización de facturación y cobros",
+                description: "Conectamos tu ERP y tu banco para automatizar la emisión y seguimiento de facturas.",
+                bullets: [
+                  "Generación automática de facturas al cerrar ventas.",
+                  "Envío de recordatorios de pago por email y WhatsApp.",
+                  "Conciliación bancaria automática.",
+                  "Panel de control en tiempo real."
+                ],
+                resultado: "Reducción del 90% de errores y cobros más rápidos sin intervención manual."
+              }}
             />
 
             <ServiceCard
@@ -394,6 +427,17 @@ export default function Home() {
               title="Formación y Soporte"
               description="Capacitamos a tu equipo y ofrecemos soporte continuo para maximizar resultados"
               gradient="from-purple-400 to-blue-600"
+              example={{
+                title: "Caso: Formación en IA para equipos comerciales",
+                description: "Sesiones prácticas para que tu equipo aproveche al máximo los agentes y automatizaciones.",
+                bullets: [
+                  "Talleres personalizados y ejemplos reales.",
+                  "Soporte 24/7 para dudas y mejoras.",
+                  "Documentación y vídeos a medida.",
+                  "Seguimiento de resultados y optimización."
+                ],
+                resultado: "El equipo duplicó la adopción de IA y mejoró un 30% la conversión de leads."
+              }}
             />
           </div>
         </div>

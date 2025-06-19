@@ -9,6 +9,7 @@ import { ArrowRight, Loader2 } from "lucide-react"
 import { motion } from "framer-motion"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Label } from "@/components/ui/label"
+import { supabase } from "@/lib/supabase"
 
 interface FormData {
   name: string
@@ -58,16 +59,18 @@ export function ContactForm() {
     setError(null)
 
     try {
-      // Simulamos el envío del formulario para evitar el error de Supabase
-      console.log("Simulando envío de formulario con datos:", formData)
-
-      // En lugar de enviar a Supabase, simplemente simulamos un retraso
-      await new Promise((resolve) => setTimeout(resolve, 1000))
-
-      // Simulamos el envío de la notificación
-      console.log("Simulando envío de notificación")
-
-      // Marcamos como enviado
+      // Insertar en la tabla contacts de Supabase
+      const { error: supabaseError } = await supabase.from("contacts").insert([
+        {
+          nombre: formData.name,
+          email: formData.email,
+          empresa: formData.company,
+          telefono: formData.phone,
+          sector: formData.sector,
+          mensaje: formData.message,
+        },
+      ])
+      if (supabaseError) throw supabaseError
       setIsSubmitted(true)
     } catch (err: any) {
       console.error("Error al enviar el formulario:", err)
