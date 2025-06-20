@@ -73,19 +73,19 @@ export function StatCard({ icon, title, value, description }: StatCardProps) {
       <div className="absolute bottom-2 left-2 w-2 h-2 bg-purple-400/40 rounded-full blur-sm animate-pulse" />
       <div className="absolute bottom-2 right-2 w-3 h-3 bg-gradient-to-br from-purple-400/60 to-blue-400/40 rounded-full blur-sm animate-pulse" />
       {/* Ícono grande y brillante */}
-      <motion.div
+        <motion.div
         className="flex items-center justify-center mb-6 relative z-10"
         whileHover={{ rotate: 8, scale: 1.18 }}
         transition={{ type: "spring", stiffness: 300, damping: 12 }}
-      >
+        >
         <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500/30 to-purple-500/20 shadow-lg shadow-blue-500/20 border border-blue-400/20">
           <span className="text-4xl md:text-5xl text-blue-300 drop-shadow-lg animate-pulse-slow">{icon}</span>
         </div>
-      </motion.div>
+        </motion.div>
       {/* Título */}
       <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-blue-200 transition-colors duration-300 z-10">
-        {title}
-      </h3>
+          {title}
+        </h3>
       {/* Valor animado */}
       <motion.p
         className="text-5xl font-extrabold text-white text-center mb-2 group-hover:text-blue-200 transition-colors duration-300 z-10 drop-shadow-lg"
@@ -102,8 +102,8 @@ export function StatCard({ icon, title, value, description }: StatCardProps) {
       <div className="h-1 w-16 mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-full group-hover:w-3/4 transition-all duration-300 z-10" />
       {/* Descripción */}
       <p className="text-blue-100/80 mt-4 text-center text-lg group-hover:text-blue-100/90 transition-colors duration-300 z-10">
-        {description}
-      </p>
+          {description}
+        </p>
     </motion.div>
   )
 }

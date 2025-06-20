@@ -67,13 +67,13 @@ export default function Home() {
                   }
                 }}
               >
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
-                  alt="NeuraX"
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
+                alt="NeuraX"
                   width={110}
                   height={110}
                   className="h-16 md:h-20 w-auto object-contain transition-all duration-300"
-                />
+              />
               </div>
             </motion.div>
           </div>
@@ -456,7 +456,7 @@ export default function Home() {
           </div>
 
           <div className="relative">
-            <AgentCarouselPro />
+          <AgentCarouselPro />
           </div>
         </div>
       </section>
@@ -661,13 +661,13 @@ export default function Home() {
                   }
                 }}
               >
-                <Image
-                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
-                  alt="NeuraX Logo"
-                  width={80}
-                  height={80}
-                  className="mx-auto"
-                />
+              <Image
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
+                alt="NeuraX Logo"
+                width={80}
+                height={80}
+                className="mx-auto"
+              />
               </div>
               <h3 className="text-xl font-bold mt-2 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
                 Agencia de Inteligencia Artificial NeuraX

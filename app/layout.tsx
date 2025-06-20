@@ -2,6 +2,7 @@ import "@/styles/globals.css"
 import { Rajdhani, Audiowide } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import type React from "react"
+import { Analytics } from "@vercel/analytics/next"
 
 // Tipografía principal futurista con buena legibilidad
 const rajdhani = Rajdhani({
@@ -43,3 +44,5 @@ export default function RootLayout({
 export const metadata = {
   generator: "v0.dev",
 }
+
+
