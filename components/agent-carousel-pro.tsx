@@ -11,7 +11,7 @@ const agents = [
   {
     icon: <BarChart3 className="h-8 w-8" />,
     name: "FinanceFlow",
-    description: "Agente de contabilidad (facturación, informes, alertas de pagos).",
+    description: "Agente de contabilidad (facturación, informes, pagos).",
     stats: [
       { label: "Automatización de facturación", value: "Sí" },
       { label: "Alertas de pagos", value: "Sí" },
@@ -275,12 +275,7 @@ export function AgentCarouselPro() {
   return (
     <div className="relative w-full">
       {/* Navigation */}
-      <div className="flex justify-between items-center mb-8">
-        <div>
-          <h3 className="text-2xl font-bold text-white mb-2">Agentes Especializados</h3>
-          <p className="text-slate-400">Soluciones de IA para cada área de tu negocio</p>
-        </div>
-
+      <div className="flex justify-end items-center mb-8">
         <div className="flex gap-2">
           <Button
             variant="outline"
@@ -328,8 +323,8 @@ export function AgentCarouselPro() {
             >
               <div className="relative bg-gradient-to-br from-blue-900/40 to-purple-900/20 backdrop-blur-sm rounded-2xl border border-blue-500/20 p-8 w-full flex flex-col items-center h-full min-h-[280px] transition-all duration-300 overflow-visible">
                 {/* Icono grande y centrado */}
-                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 mb-2 mt-2">
-                  <span className="text-3xl md:text-4xl text-blue-500">{agent.icon}</span>
+                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500/80 via-purple-500/70 to-blue-400/80 shadow-lg border border-white/40 dark:border-white/10 mb-2 mt-2">
+                  <span className="text-white text-2xl md:text-3xl drop-shadow-md">{agent.icon}</span>
                 </div>
                 {/* Nombre y categoría centrados */}
                 <h4 className="font-bold text-slate-900 dark:text-white text-lg md:text-xl text-center mb-0.5">{agent.name}</h4>
@@ -370,9 +365,13 @@ export function AgentCarouselPro() {
                     <button className="absolute top-4 right-4 text-slate-400 hover:text-blue-500" onClick={() => setOpenAgent(null)}>
                       <X className="w-6 h-6" />
                     </button>
+                    <DialogPrimitive.Title asChild>
+                      <h2 className="text-xl font-bold text-center text-blue-900 dark:text-blue-200 mb-1">
+                        {agentDetails[agent.name].title}
+                      </h2>
+                    </DialogPrimitive.Title>
                     <div className="flex flex-col items-center gap-2 mb-4">
                       <span className="text-4xl">{agentDetails[agent.name].icon}</span>
-                      <h2 className="text-xl font-bold text-center text-blue-900 dark:text-blue-200 mb-1">{agentDetails[agent.name].title}</h2>
                       <p className="text-slate-700 dark:text-slate-200 text-center mb-2">{agentDetails[agent.name].description}</p>
                     </div>
                     <ul className="mb-4 space-y-2">

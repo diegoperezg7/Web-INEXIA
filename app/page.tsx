@@ -23,6 +23,8 @@ export default function Home() {
   const opacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9])
 
+  const [openServices, setOpenServices] = useState<{ [key: string]: boolean }>({})
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("section[id]")
@@ -53,13 +55,26 @@ export default function Home() {
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex items-center">
             <motion.div whileHover={{ scale: 1.05 }} transition={{ type: "spring", stiffness: 400, damping: 10 }}>
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
-                alt="NeuraX"
-                width={120}
-                height={120}
-                className="h-16 w-auto object-contain transition-all duration-300"
-              />
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  const element = document.getElementById("hero")
+                  if (element) {
+                    window.scrollTo({
+                      top: element.offsetTop - 80,
+                      behavior: "smooth",
+                    })
+                  }
+                }}
+              >
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
+                  alt="NeuraX"
+                  width={110}
+                  height={110}
+                  className="h-16 md:h-20 w-auto object-contain transition-all duration-300"
+                />
+              </div>
             </motion.div>
           </div>
 
@@ -195,9 +210,9 @@ export default function Home() {
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview%20%281%29-qLXLYtKBm5sRI372qiQPuuVWV3nz9V.png"
               alt="NeuraX Logo"
-              width={120}
-              height={120}
-              className="w-20 h-20 md:w-28 md:h-28 object-contain"
+              width={160}
+              height={160}
+              className="w-24 h-24 md:w-32 md:h-32 object-contain"
             />
           </motion.div>
 
@@ -367,77 +382,61 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
             <ServiceCard
               icon={<Briefcase className="h-10 w-10" />}
               title="Consultoría Estratégica"
-              description="Analizamos tu negocio para identificar oportunidades de automatización e IA"
+              description="Analizamos tu negocio para identificar oportunidades de automatización de tareas repetitivas."
               gradient="from-blue-600 to-blue-400"
-              example={{
-                title: "Caso real: Optimización de procesos en eCommerce",
-                description: "Identificamos cuellos de botella y automatizamos la gestión de pedidos y atención al cliente.",
-                bullets: [
-                  "Análisis de procesos y detección de tareas repetitivas.",
-                  "Propuesta de automatización personalizada.",
-                  "Implementación de bots para atención 24/7.",
-                  "Ahorro de 40h/mes en tareas manuales."
-                ],
-                resultado: "El cliente redujo un 35% los costes operativos y mejoró la satisfacción de sus clientes en 2 meses."
-              }}
+              details={[
+                "Diagnóstico completo de tus procesos",
+                "Identificación de puntos de automatización prioritarios",
+                "Plan de acción personalizado con soluciones aplicables"
+              ]}
+              open={!!openServices['Consultoría Estratégica']}
+              onToggle={() => setOpenServices((prev) => ({ ...prev, ['Consultoría Estratégica']: !prev['Consultoría Estratégica'] }))}
             />
 
             <ServiceCard
               icon={<Bot className="h-10 w-10" />}
-              title="Agentes IA Especializados"
-              description="Desarrollamos asistentes inteligentes adaptados a tus necesidades específicas"
+              title="Agentes de IA Especializados"
+              description="Desarrollamos asistentes inteligentes adaptados a tus necesidades específicas."
               gradient="from-purple-600 to-blue-400"
-              example={{
-                title: "Ejemplo: Asistente de WhatsApp para clínicas",
-                description: "Un agente IA gestiona reservas, recordatorios y dudas de pacientes por WhatsApp.",
-                bullets: [
-                  "Responde automáticamente a preguntas frecuentes.",
-                  "Gestiona y confirma citas en tiempo real.",
-                  "Envía recordatorios y encuestas post-visita.",
-                  "Integración con Google Calendar y CRM."
-                ],
-                resultado: "Reducción del 60% en llamadas y ausencias, y aumento de la satisfacción del paciente."
-              }}
+              details={[
+                "Agentes personalizados, diseñados desde cero según tus necesidades",
+                "Agentes preconfigurados, adaptados a tu empresa",
+                "Todo funciona desde el primer día, sin configuraciones técnicas"
+              ]}
+              open={!!openServices['Agentes de IA Especializados']}
+              onToggle={() => setOpenServices((prev) => ({ ...prev, ['Agentes de IA Especializados']: !prev['Agentes de IA Especializados'] }))}
             />
 
             <ServiceCard
               icon={<Zap className="h-10 w-10" />}
               title="Automatización No-Code"
-              description="Implementamos flujos de trabajo automatizados sin necesidad de programación"
+              description="Implementamos flujos de trabajo automatizados sin necesidad de programación."
               gradient="from-blue-400 to-purple-600"
-              example={{
-                title: "Ejemplo: Automatización de facturación y cobros",
-                description: "Conectamos tu ERP y tu banco para automatizar la emisión y seguimiento de facturas.",
-                bullets: [
-                  "Generación automática de facturas al cerrar ventas.",
-                  "Envío de recordatorios de pago por email y WhatsApp.",
-                  "Conciliación bancaria automática.",
-                  "Panel de control en tiempo real."
-                ],
-                resultado: "Reducción del 90% de errores y cobros más rápidos sin intervención manual."
-              }}
+              details={[
+                "Automatización de procesos administrativos, clientes y contenido",
+                "Eliminación de tareas repetitivas y cuellos de botella",
+                "Soluciones entregadas listas para usar, sin aprendizaje técnico"
+              ]}
+              open={!!openServices['Automatización No-Code']}
+              onToggle={() => setOpenServices((prev) => ({ ...prev, ['Automatización No-Code']: !prev['Automatización No-Code'] }))}
             />
 
             <ServiceCard
               icon={<Users className="h-10 w-10" />}
-              title="Formación y Soporte"
-              description="Capacitamos a tu equipo y ofrecemos soporte continuo para maximizar resultados"
+              title="Soporte y Mantenimiento"
+              description="Nos encargamos del mantenimiento y del soporte continuo de tus soluciones implementadas."
               gradient="from-purple-400 to-blue-600"
-              example={{
-                title: "Caso: Formación en IA para equipos comerciales",
-                description: "Sesiones prácticas para que tu equipo aproveche al máximo los agentes y automatizaciones.",
-                bullets: [
-                  "Talleres personalizados y ejemplos reales.",
-                  "Soporte 24/7 para dudas y mejoras.",
-                  "Documentación y vídeos a medida.",
-                  "Seguimiento de resultados y optimización."
-                ],
-                resultado: "El equipo duplicó la adopción de IA y mejoró un 30% la conversión de leads."
-              }}
+              details={[
+                "Resolución de incidencias",
+                "Optimización y mejoras continuas",
+                "Adaptación a cambios en procesos o necesidades"
+              ]}
+              open={!!openServices['Soporte y Mantenimiento']}
+              onToggle={() => setOpenServices((prev) => ({ ...prev, ['Soporte y Mantenimiento']: !prev['Soporte y Mantenimiento'] }))}
             />
           </div>
         </div>
@@ -446,17 +445,19 @@ export default function Home() {
       {/* Agents Section */}
       <section id="agents" className="py-20 relative z-10">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 relative">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight">
+          <div className="text-center mb-4 relative">
+            <h2 className="text-3xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight">
               Nuestros Agentes de IA
             </h2>
-            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6"></div>
-            <p className="text-xl text-blue-100/70 max-w-2xl mx-auto relative z-10">
-              Cada agente está diseñado para resolver problemas específicos de tu industria
+            <p className="text-base md:text-lg text-blue-100/80 max-w-2xl mx-auto mb-1">
+              Estos son ejemplos base que podemos adaptar a tu empresa. <span className="font-semibold text-blue-300">También creamos agentes totalmente personalizados desde cero.</span>
             </p>
+            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-1"></div>
           </div>
 
-          <AgentCarouselPro />
+          <div className="relative">
+            <AgentCarouselPro />
+          </div>
         </div>
       </section>
 
@@ -595,25 +596,20 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* Call to Action */}
+                {/* Call to Action - Nueva versión profesional */}
                 <motion.div
-                  className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 backdrop-blur-sm rounded-xl border border-blue-500/30 p-6 text-center relative overflow-hidden"
+                  className="bg-gradient-to-br from-slate-100/90 to-blue-100/70 dark:from-blue-900/60 dark:to-purple-900/40 rounded-2xl border border-blue-500/10 shadow-xl p-8 text-center flex flex-col items-center gap-4 relative overflow-hidden"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 1 }}
                 >
-                  <div className="relative z-10">
-                    <h4 className="text-lg font-semibold text-white mb-2">¿Tienes dudas?</h4>
-                    <p className="text-blue-200/70 mb-4">Habla directamente con nuestros expertos</p>
-                    <Button
-                      variant="outline"
-                      className="border-blue-500/50 text-blue-400 hover:bg-blue-950/30 hover:text-blue-300 relative overflow-hidden group"
-                    >
-                      <span className="relative z-10">Consulta Gratuita</span>
-                      <ArrowRight className="ml-2 h-4 w-4 relative z-10 group-hover:translate-x-1 transition-transform" />
-                      <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
-                    </Button>
+                  <h4 className="text-2xl font-bold text-blue-900 dark:text-blue-200 mb-1">¿Prefieres hablar directamente?</h4>
+                  <p className="text-blue-700 dark:text-blue-100/80 text-base mb-1">Nuestro equipo te responderá en menos de 24h.</p>
+                  <p className="italic text-blue-500 dark:text-blue-300 text-base mb-3">“A veces una simple conversación lo cambia todo.”</p>
+                  <div className="flex items-center justify-center gap-2 mb-2">
+                    <span className="text-lg">📩</span>
+                    <span className="text-blue-800 dark:text-blue-200 font-semibold select-all">info@neurax.com</span>
                   </div>
                 </motion.div>
 
@@ -653,13 +649,26 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center text-center">
             {/* Logo */}
             <div className="mb-4">
-              <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
-                alt="NeuraX Logo"
-                width={80}
-                height={80}
-                className="mx-auto"
-              />
+              <div
+                style={{ cursor: "pointer" }}
+                onClick={() => {
+                  const element = document.getElementById("hero")
+                  if (element) {
+                    window.scrollTo({
+                      top: element.offsetTop - 80,
+                      behavior: "smooth",
+                    })
+                  }
+                }}
+              >
+                <Image
+                  src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
+                  alt="NeuraX Logo"
+                  width={80}
+                  height={80}
+                  className="mx-auto"
+                />
+              </div>
               <h3 className="text-xl font-bold mt-2 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
                 Agencia de Inteligencia Artificial NeuraX
               </h3>
@@ -740,7 +749,7 @@ export default function Home() {
             {/* Contact Information */}
             <div className="flex flex-wrap justify-center gap-6 mb-8">
               <a
-                href="mailto:info@neurax.ai"
+                href="mailto:info@neurax.com"
                 className="flex items-center text-blue-300 hover:text-blue-200 transition-colors"
               >
                 <svg
@@ -758,11 +767,11 @@ export default function Home() {
                   <rect width="20" height="16" x="2" y="4" rx="2" />
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
-                info@neurax.ai
+                info@neurax.com
               </a>
 
               <a
-                href="tel:+34919030456"
+                href="tel:+34608524638"
                 className="flex items-center text-blue-300 hover:text-blue-200 transition-colors"
               >
                 <svg
@@ -779,7 +788,7 @@ export default function Home() {
                 >
                   <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                 </svg>
-                +34 919 030 456
+                +34 608 52 46 38
               </a>
             </div>
 
