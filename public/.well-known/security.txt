@@ -1,3 +1,4 @@
 # security.txt para NeuraX
-Contact: mailto:security@neurax.ai
+Contact: mailto:security@agencianeurax.com
+Preferred-Languages: es, en
 # TODO: Añadir más información de seguridad si es necesario 

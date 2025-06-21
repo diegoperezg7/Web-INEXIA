@@ -2,7 +2,7 @@ export default function Page() {
   return (
     <main className="prose mx-auto px-4 py-16">
       <h1>Condiciones Generales</h1>
-      <p><strong>Responsable:</strong> NeuraX · CIF: {'{{CIF_PENDIENTE}}'} · Domicilio: Madrid · Email: {'{{EMAIL_CONTACTO}}'} · Dominio: {'{{DOMINIO_OFICIAL_TODO}}'}</p>
+      <p><strong>Responsable:</strong> Diego Pérez García · NIF: 53939679-X · Domicilio: Calle Arizónicas 1, 28223 Madrid · Email: info@agencianeurax.com · Dominio: https://agencianeurax.com</p>
       <h2>Objeto</h2>
       <p>Regular el uso de la web y la relación con los usuarios. <strong>TODO: completar condiciones específicas.</strong></p>
       <h2>Obligaciones de los usuarios</h2>
@@ -14,6 +14,8 @@ export default function Page() {
       <h2>Legislación aplicable</h2>
       <p>Estas condiciones se rigen por la legislación española.</p>
       <p><strong>TODO: revisar y completar según asesoría legal.</strong></p>
+      <h2>Cláusula IA</h2>
+      <p>Los resultados generados por los agentes de IA son orientativos y no constituyen asesoramiento profesional. El usuario es responsable de validar cualquier información antes de tomar decisiones relevantes.</p>
     </main>
   );
 } 

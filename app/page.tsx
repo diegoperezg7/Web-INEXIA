@@ -50,7 +50,7 @@ export default function Home() {
     const isA = Math.random() < 0.5
     if (isA) {
       setCtaId("cta-hero-A")
-      setCtaText("Quiero mi IA en 7 días")
+      setCtaText("¡Descubre cómo ahorrar tiempo y dinero en solo 7 días!")
     } else {
       setCtaId("cta-hero-B")
       setCtaText("Empieza a ahorrar horas ¡ya!")
@@ -263,12 +263,9 @@ export default function Home() {
           >
             {ctaId && (
               <CtaButton
-                id={ctaId}
                 text={ctaText}
                 className="size-lg"
-                onClick={() => {
-                  // Tracking extra opcional aquí si se quiere
-                }}
+                ctaId={ctaId}
               />
             )}
 
@@ -825,7 +822,7 @@ export default function Home() {
             {/* Copyright */}
             <div className="text-center text-blue-300/60 relative">
               <div className="h-px w-24 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent mb-4 mx-auto"></div>
-              &copy; {new Date().getFullYear()} NeuraX · Madrid, España.
+              © 2025 NeuraX — Agencia de Inteligencia Artificial · CIF · Madrid, España
             </div>
           </div>
         </div>
