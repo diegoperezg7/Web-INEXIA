@@ -74,10 +74,10 @@ export function ContactForm({ ctaId }: ContactFormProps) {
           telefono: formData.phone,
           sector: formData.sector,
           mensaje: formData.message,
-          privacyConsent,
-          marketingConsent,
-          gdprConsentDate: new Date().toISOString(),
-          ctaId,
+          privacyconsent: privacyConsent,
+          marketingconsent: marketingConsent,
+          gdprconsentdate: new Date().toISOString(),
+          ctaid: ctaId,
         },
       ])
       if (supabaseError) throw supabaseError
@@ -88,7 +88,11 @@ export function ContactForm({ ctaId }: ContactFormProps) {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Accept": "application/json",
+            "User-Agent": "NeuraX-WebApp/1.0",
           },
+          mode: "cors",
+          credentials: "omit",
           body: JSON.stringify({
             nombre: formData.name,
             email: formData.email,
@@ -97,15 +101,15 @@ export function ContactForm({ ctaId }: ContactFormProps) {
             sector: formData.sector,
             mensaje: formData.message,
             fecha_envio: new Date().toISOString(),
-            privacyConsent,
-            marketingConsent,
-            gdprConsentDate: new Date().toISOString(),
-            ctaId,
+            privacyconsent: privacyConsent,
+            marketingconsent: marketingConsent,
+            gdprconsentdate: new Date().toISOString(),
+            ctaid: ctaId,
           }),
         })
       } catch (webhookError) {
-        // Opcional: registrar el error sin bloquear al usuario
-        console.error("No se pudo enviar el lead a n8n, pero se guardó en la BD:", webhookError)
+        // El webhook es opcional, no bloquear al usuario si falla
+        console.warn("Webhook n8n no disponible, pero el lead se guardó correctamente en Supabase:", webhookError)
       }
 
       setIsSubmitted(true)
