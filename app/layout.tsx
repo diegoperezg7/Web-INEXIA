@@ -19,6 +19,14 @@ const audiowide = Audiowide({
   variable: "--font-audiowide",
 })
 
+export const metadata = {
+  title: "NeuraX - Agencia de Inteligencia Artificial",
+  description: "Agencia de inteligencia artificial y automatización no-code para empresas ágiles. Automatiza tu empresa con IA en días, no en meses.",
+  icons: {
+    icon: "/favicon.png",
+  },
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -26,13 +34,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <head>
-        <title>NeuraX - Automatización con IA para empresas ágiles</title>
-        <meta
-          name="description"
-          content="Agencia de inteligencia artificial y automatización no-code para empresas ágiles. Automatiza tu empresa con IA en días, no en meses."
-        />
-      </head>
+      <head />
       <body className={`${rajdhani.variable} ${audiowide.variable} ${rajdhani.className}`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
@@ -41,9 +43,5 @@ export default function RootLayout({
       </body>
     </html>
   )
-}
-
-export const metadata = {
-  generator: "v0.dev",
 }
 
