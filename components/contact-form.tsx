@@ -71,6 +71,29 @@ export function ContactForm() {
         },
       ])
       if (supabaseError) throw supabaseError
+
+      // Enviar datos al webhook de n8n
+      try {
+        await fetch("https://neuraxagencia.app.n8n.cloud/webhook-test/nuevo-lead", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            nombre: formData.name,
+            email: formData.email,
+            empresa: formData.company,
+            telefono: formData.phone,
+            sector: formData.sector,
+            mensaje: formData.message,
+            fecha_envio: new Date().toISOString(),
+          }),
+        })
+      } catch (webhookError) {
+        // Opcional: registrar el error sin bloquear al usuario
+        console.error("No se pudo enviar el lead a n8n, pero se guardó en la BD:", webhookError)
+      }
+
       setIsSubmitted(true)
     } catch (err: any) {
       console.error("Error al enviar el formulario:", err)
