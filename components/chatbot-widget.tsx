@@ -37,9 +37,52 @@ export function ChatbotWidget() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input })
       })
+      
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`)
+      }
+      
       const data = await res.json()
-      setMessages((msgs) => [...msgs, { role: "bot", content: data.reply || "Sin respuesta" }])
-    } catch {
+      console.log("Respuesta del webhook:", data) // Para debug
+      
+      // Manejar diferentes formatos de respuesta
+      let botResponse = "Sin respuesta"
+      
+      if (data.reply) {
+        botResponse = data.reply
+      } else if (data.message) {
+        botResponse = data.message
+      } else if (data.text) {
+        botResponse = data.text
+      } else if (data.content) {
+        botResponse = data.content
+      } else if (typeof data === 'string') {
+        botResponse = data
+      } else if (Array.isArray(data) && data.length > 0) {
+        // Si es un array, tomar el primer elemento
+        const firstItem = data[0]
+        if (typeof firstItem === 'string') {
+          botResponse = firstItem
+        } else if (firstItem.reply) {
+          botResponse = firstItem.reply
+        } else if (firstItem.message) {
+          botResponse = firstItem.message
+        } else if (firstItem.text) {
+          botResponse = firstItem.text
+        } else if (firstItem.content) {
+          botResponse = firstItem.content
+        }
+      } else if (data && typeof data === 'object') {
+        // Si es un objeto, intentar encontrar cualquier propiedad que contenga texto
+        const textProps = Object.values(data).filter(val => typeof val === 'string')
+        if (textProps.length > 0) {
+          botResponse = textProps[0]
+        }
+      }
+      
+      setMessages((msgs) => [...msgs, { role: "bot", content: botResponse }])
+    } catch (error) {
+      console.error("Error al conectar con el chatbot:", error) // Para debug
       setMessages((msgs) => [...msgs, { role: "bot", content: "Hubo un error al conectar con el chatbot." }])
     } finally {
       setLoading(false)
@@ -168,6 +211,9 @@ export function ChatbotWidget() {
                 >
                   <div className="relative flex-1">
                     <Input
+                      id="chatbot-input"
+                      name="chatbot-message"
+                      autoComplete="off"
                       value={input}
                       onChange={e => setInput(e.target.value)}
                       onKeyDown={handleKeyDown}
