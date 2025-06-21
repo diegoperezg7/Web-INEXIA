@@ -6,6 +6,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/componen
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { MessageCircle, X, Send, Bot, User, Sparkles, Zap } from "lucide-react"
+import Image from "next/image"
 
 interface Message {
   role: "user" | "bot"
@@ -97,7 +98,7 @@ export function ChatbotWidget() {
   }
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end">
       <AnimatePresence>
         {open && (
           <motion.div
@@ -105,7 +106,7 @@ export function ChatbotWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 40, scale: 0.95 }}
             transition={{ duration: 0.25 }}
-            className="mb-4 w-80 max-w-[90vw]"
+            className="mb-4 w-[28rem] max-w-[90vw]"
           >
             <Card className="bg-gradient-to-br from-slate-900/20 to-slate-800/20 backdrop-blur-xl border border-slate-700/50 shadow-2xl shadow-blue-500/20 relative overflow-hidden">
               {/* Efecto de brillo animado */}
@@ -119,32 +120,47 @@ export function ChatbotWidget() {
               </div>
 
               <CardHeader className="flex flex-row items-center justify-between p-4 pb-2 border-b border-blue-500/20 bg-gradient-to-r from-blue-600/20 to-purple-600/20">
-                <CardTitle className="text-lg font-bold flex items-center gap-2 text-white">
-                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent ml-2">
+                <CardTitle className="text-2xl font-bold flex items-center gap-2 text-white">
+                  <Image 
+                    src="/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview (1).png" 
+                    alt="Neura" 
+                    width={32} 
+                    height={32} 
+                    className="object-contain"
+                  />
+                  <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                     Neura
                   </span>
                 </CardTitle>
                 <button 
-                  onClick={() => setOpen(false)} 
-                  className="text-muted-foreground hover:text-blue-400 transition-colors p-1 rounded-full hover:bg-blue-500/20"
+                  onClick={() => {
+                    console.log("Botón cerrar clickeado")
+                    setOpen(false)
+                  }} 
+                  className="text-muted-foreground hover:text-blue-400 transition-colors p-1 rounded-full hover:bg-blue-500/20 z-10 relative"
+                  type="button"
                 >
                   <X className="w-5 h-5" />
                 </button>
               </CardHeader>
               
-              <CardContent className="h-72 overflow-y-auto flex flex-col gap-3 px-4 py-3 bg-gradient-to-b from-slate-900/30 to-slate-800/30 relative">
+              <CardContent className="h-96 overflow-y-auto flex flex-col gap-3 px-4 py-3 bg-gradient-to-b from-slate-900/30 to-slate-800/30 relative">
                 {messages.length === 0 && (
                   <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="text-muted-foreground text-sm text-center mt-8 flex flex-col items-center gap-2"
+                    className="text-muted-foreground text-base text-center flex flex-col items-center justify-center h-full gap-4"
                   >
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center border border-blue-500/30">
-                      <Zap className="w-6 h-6 text-blue-400" />
-                    </div>
+                    <Image 
+                      src="/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview (1).png" 
+                      alt="Neura" 
+                      width={64} 
+                      height={64} 
+                      className="object-contain"
+                    />
                     <div>
                       <p className="font-medium text-blue-300">¡Hola! Soy tu asistente IA</p>
-                      <p className="text-xs text-muted-foreground mt-1">¿En qué puedo ayudarte hoy?</p>
+                      <p className="text-sm text-muted-foreground mt-1">¿En qué puedo ayudarte hoy?</p>
                     </div>
                   </motion.div>
                 )}
@@ -205,6 +221,7 @@ export function ChatbotWidget() {
                 <form
                   className="flex gap-2 w-full"
                   onSubmit={e => {
+                    console.log("Formulario enviado")
                     e.preventDefault()
                     sendMessage()
                   }}
@@ -226,7 +243,8 @@ export function ChatbotWidget() {
                     type="submit" 
                     size="icon" 
                     disabled={loading || !input.trim()} 
-                    className="shrink-0 bg-gradient-to-br from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-none shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300"
+                    onClick={() => console.log("Botón enviar clickeado")}
+                    className="shrink-0 bg-gradient-to-br from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 border-none shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 z-10 relative"
                   >
                     <Send className="w-4 h-4" />
                   </Button>
@@ -245,8 +263,11 @@ export function ChatbotWidget() {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.3 }}
-        onClick={() => setOpen(true)}
-        aria-label="Abrir chatbot"
+        onClick={() => {
+          console.log("Botón flotante clickeado, estado actual:", open)
+          setOpen(!open)
+        }}
+        aria-label={open ? "Cerrar chatbot" : "Abrir chatbot"}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         tabIndex={0}
