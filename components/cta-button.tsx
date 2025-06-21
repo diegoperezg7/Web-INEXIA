@@ -15,7 +15,10 @@ export function CtaButton({ text, className = "" }: CtaButtonProps) {
 
   const handleClick = async () => {
     // Desplazar a la sección de contacto
-    const element = document.getElementById("cta")
+    let element = document.getElementById("contact-form")
+    if (!element) {
+      element = document.getElementById("cta")
+    }
     if (element) {
       window.scrollTo({
         top: element.offsetTop - 80,

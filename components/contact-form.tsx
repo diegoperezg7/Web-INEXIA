@@ -208,7 +208,7 @@ export function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 relative">
+    <form id="contact-form" onSubmit={handleSubmit} className="space-y-4 relative">
       {/* Decorative elements */}
       <div className="absolute -right-4 -top-4 w-20 h-20 bg-blue-500/5 rounded-full blur-lg"></div>
       <div className="absolute -left-4 -bottom-4 w-20 h-20 bg-purple-500/5 rounded-full blur-lg"></div>
