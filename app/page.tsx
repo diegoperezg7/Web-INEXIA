@@ -247,7 +247,7 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <CtaButton text="Solicita información gratuita" className="size-lg" />
+            <CtaButton text="Aumenta tu productividad +40%" className="size-lg" />
 
             <Button
               variant="outline"
