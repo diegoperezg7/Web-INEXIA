@@ -210,11 +210,11 @@ export default function Home() {
       <section
         id="hero"
         ref={heroRef}
-        className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+        className="relative min-h-screen flex items-center justify-center pt-16 md:pt-20 overflow-hidden"
       >
         <HeroGlow />
 
-        <motion.div className="container mx-auto px-4 py-20 text-center z-10" style={{ opacity, scale }}>
+        <motion.div className="container mx-auto px-4 py-12 md:py-20 text-center z-10" style={{ opacity, scale }}>
           <motion.div
             className="flex justify-center mb-8"
             initial={{ opacity: 0, scale: 0.8 }}
@@ -224,14 +224,14 @@ export default function Home() {
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview%20%281%29-qLXLYtKBm5sRI372qiQPuuVWV3nz9V.png"
               alt="NeuraX Logo"
-              width={160}
-              height={160}
-              className="w-24 h-24 md:w-32 md:h-32 object-contain"
+              width={20}
+              height={20}
+              className="w-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-contain"
             />
           </motion.div>
 
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-zinc-300 tracking-tight"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 text-zinc-300 tracking-tight leading-tight"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -247,7 +247,7 @@ export default function Home() {
           </motion.h1>
 
           <motion.p
-            className="text-xl md:text-2xl text-blue-100/80 max-w-3xl mx-auto mb-10"
+            className="text-lg sm:text-xl md:text-2xl text-blue-100/80 max-w-3xl mx-auto mb-6 md:mb-10 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -256,7 +256,7 @@ export default function Home() {
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 md:mb-16 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -264,15 +264,15 @@ export default function Home() {
             {ctaId && (
               <CtaButton
                 text={ctaText}
-                className="size-lg"
+                className="w-full sm:w-auto text-sm sm:text-base"
                 ctaId={ctaId}
               />
             )}
 
             <Button
               variant="outline"
-              size="lg"
-              className="border-blue-500/50 text-blue-400 hover:bg-blue-950/30 hover:text-blue-300 relative overflow-hidden group"
+              size="default"
+              className="w-full sm:w-auto border-blue-500/50 text-blue-400 hover:bg-blue-950/30 hover:text-blue-300 relative overflow-hidden group text-sm sm:text-base"
               onClick={() => {
                 const element = document.getElementById("agents")
                 if (element) {
@@ -289,15 +289,15 @@ export default function Home() {
           </motion.div>
 
           <motion.div
-            className="relative w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl shadow-blue-500/10"
+            className="relative w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-2xl shadow-blue-500/10 px-4"
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.8 }}
           >
-            <div className="aspect-video bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur rounded-xl border border-blue-500/20 flex items-center justify-center relative overflow-hidden group">
+            <div className="aspect-video bg-gradient-to-br from-blue-900/40 to-purple-900/40 backdrop-blur rounded-xl border border-blue-500/20 flex items-center justify-center relative overflow-hidden group p-4">
               <div className="absolute inset-0 bg-grid-white/[0.02] bg-[length:16px_16px]"></div>
 
-              <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-6">
+              <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-2 sm:p-6">
                 <motion.div
                   className="w-full h-full relative"
                   whileHover={{ scale: 1.03 }}
@@ -310,37 +310,37 @@ export default function Home() {
                   />
                 </motion.div>
 
-                <h3 className="text-xl font-semibold mt-4 text-white">Flujos de Trabajo Inteligentes</h3>
-                <p className="text-blue-200/70">Automatización avanzada que conecta tus aplicaciones y servicios</p>
+                <h3 className="text-lg sm:text-xl font-semibold mt-2 sm:mt-4 text-white text-center">Flujos de Trabajo Inteligentes</h3>
+                <p className="text-sm sm:text-base text-blue-200/70 text-center">Automatización avanzada que conecta tus aplicaciones y servicios</p>
               </div>
             </div>
           </motion.div>
 
           <motion.div
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 text-blue-400/80 animate-bounce"
+            className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 text-blue-400/80 animate-bounce"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 1 }}
           >
-            <ChevronDown className="h-8 w-8" />
+            <ChevronDown className="h-6 w-6 md:h-8 md:w-8" />
           </motion.div>
         </motion.div>
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-20 relative z-10">
+      <section id="benefits" className="py-12 md:py-20 relative z-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 relative">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight px-4">
               Resultados Extraordinarios Garantizados
             </h2>
-            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6"></div>
-            <p className="text-xl text-blue-100/70 max-w-2xl mx-auto relative z-10">
+            <div className="h-1 w-16 md:w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-4 md:mb-6"></div>
+            <p className="text-lg md:text-xl text-blue-100/70 max-w-2xl mx-auto relative z-10 px-4">
               Optimizamos tus procesos con inteligencia artificial para multiplicar la productividad de tu equipo.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
             <StatCard
               icon={<Clock className="h-8 w-8 text-blue-400" />}
               title="Ahorra tiempo operativo"
@@ -364,13 +364,13 @@ export default function Home() {
           </div>
 
           <div className="text-center relative">
-            <h3 className="text-2xl md:text-4xl font-bold mb-8 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 text-transparent bg-clip-text relative z-10 tracking-tight">
+            <h3 className="text-xl sm:text-2xl md:text-4xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 text-transparent bg-clip-text relative z-10 tracking-tight px-4">
               Menos código. Más impacto. Implementación exprés.
             </h3>
 
             <Button
-              size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-none shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 relative overflow-hidden group"
+              size="default"
+              className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-none shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 relative overflow-hidden group text-sm sm:text-base"
               onClick={() => {
                 const element = document.getElementById("services")
                 if (element) {
@@ -382,7 +382,7 @@ export default function Home() {
               }}
             >
               <span className="relative z-10">Descubre cómo funciona</span>
-              <ArrowRight className="ml-2 h-5 w-5 relative z-10" />
+              <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5 relative z-10" />
               <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
             </Button>
           </div>
@@ -390,13 +390,13 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 relative z-10 bg-transparent">
+      <section id="services" className="py-12 md:py-20 relative z-10 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 relative">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight px-4">
               Tecnología Revolucionaria a tu Alcance
             </h2>
-            <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-6"></div>
+            <div className="h-1 w-16 md:w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-4 md:mb-6"></div>
             <p className="text-xl text-blue-100/70 max-w-2xl mx-auto relative z-10">
               Soluciones de IA y automatización personalizadas para tu negocio
             </p>

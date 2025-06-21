@@ -38,7 +38,7 @@ export function StatCard({ icon, title, value, description }: StatCardProps) {
 
   return (
     <motion.div
-      className="bg-gradient-to-br from-blue-900/60 to-purple-900/30 backdrop-blur-xl rounded-2xl border-2 border-blue-500/30 p-8 relative overflow-visible group shadow-2xl hover:shadow-blue-500/30 transition-shadow duration-500"
+      className="bg-gradient-to-br from-blue-900/60 to-purple-900/30 backdrop-blur-xl rounded-2xl border-2 border-blue-500/30 p-4 sm:p-6 md:p-8 relative overflow-visible group shadow-2xl hover:shadow-blue-500/30 transition-shadow duration-500"
       whileHover={{ y: -8, scale: 1.04, boxShadow: "0 0 40px 8px #6366f1aa" }}
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -47,12 +47,12 @@ export function StatCard({ icon, title, value, description }: StatCardProps) {
     >
       {/* Partículas decorativas */}
       <motion.div
-        className="absolute -top-8 left-1/2 -translate-x-1/2 w-24 h-24 bg-blue-400/10 rounded-full blur-2xl z-0 animate-pulse"
+        className="absolute -top-4 sm:-top-8 left-1/2 -translate-x-1/2 w-16 h-16 sm:w-24 sm:h-24 bg-blue-400/10 rounded-full blur-2xl z-0 animate-pulse"
         animate={{ scale: [1, 1.15, 1], opacity: [0.4, 0.7, 0.4] }}
         transition={{ duration: 3, repeat: Infinity }}
       />
       <motion.div
-        className="absolute -bottom-8 right-1/2 translate-x-1/2 w-24 h-24 bg-purple-400/10 rounded-full blur-2xl z-0 animate-pulse"
+        className="absolute -bottom-4 sm:-bottom-8 right-1/2 translate-x-1/2 w-16 h-16 sm:w-24 sm:h-24 bg-purple-400/10 rounded-full blur-2xl z-0 animate-pulse"
         animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.6, 0.3] }}
         transition={{ duration: 3, repeat: Infinity, delay: 1 }}
       />
@@ -68,27 +68,27 @@ export function StatCard({ icon, title, value, description }: StatCardProps) {
         transition={{ duration: 0.5 }}
       />
       {/* Esquinas decoradas */}
-      <div className="absolute top-2 left-2 w-3 h-3 bg-gradient-to-br from-blue-400/60 to-purple-400/40 rounded-full blur-sm animate-pulse" />
-      <div className="absolute top-2 right-2 w-2 h-2 bg-blue-400/40 rounded-full blur-sm animate-pulse" />
-      <div className="absolute bottom-2 left-2 w-2 h-2 bg-purple-400/40 rounded-full blur-sm animate-pulse" />
-      <div className="absolute bottom-2 right-2 w-3 h-3 bg-gradient-to-br from-purple-400/60 to-blue-400/40 rounded-full blur-sm animate-pulse" />
+      <div className="absolute top-1 sm:top-2 left-1 sm:left-2 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-br from-blue-400/60 to-purple-400/40 rounded-full blur-sm animate-pulse" />
+      <div className="absolute top-1 sm:top-2 right-1 sm:right-2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400/40 rounded-full blur-sm animate-pulse" />
+      <div className="absolute bottom-1 sm:bottom-2 left-1 sm:left-2 w-1.5 h-1.5 sm:w-2 sm:h-2 bg-purple-400/40 rounded-full blur-sm animate-pulse" />
+      <div className="absolute bottom-1 sm:bottom-2 right-1 sm:right-2 w-2 h-2 sm:w-3 sm:h-3 bg-gradient-to-br from-purple-400/60 to-blue-400/40 rounded-full blur-sm animate-pulse" />
       {/* Ícono grande y brillante */}
         <motion.div
-        className="flex items-center justify-center mb-6 relative z-10"
+        className="flex items-center justify-center mb-4 sm:mb-6 relative z-10"
         whileHover={{ rotate: 8, scale: 1.18 }}
         transition={{ type: "spring", stiffness: 300, damping: 12 }}
         >
-        <div className="w-16 h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500/30 to-purple-500/20 shadow-lg shadow-blue-500/20 border border-blue-400/20">
-          <span className="text-4xl md:text-5xl text-blue-300 drop-shadow-lg animate-pulse-slow">{icon}</span>
+        <div className="w-12 h-12 sm:w-16 sm:h-16 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-500/30 to-purple-500/20 shadow-lg shadow-blue-500/20 border border-blue-400/20">
+          <span className="text-2xl sm:text-4xl md:text-5xl text-blue-300 drop-shadow-lg animate-pulse-slow">{icon}</span>
         </div>
         </motion.div>
       {/* Título */}
-      <h3 className="text-xl font-bold text-white text-center mb-2 group-hover:text-blue-200 transition-colors duration-300 z-10">
+      <h3 className="text-lg sm:text-xl font-bold text-white text-center mb-2 group-hover:text-blue-200 transition-colors duration-300 z-10">
           {title}
         </h3>
       {/* Valor animado */}
       <motion.p
-        className="text-5xl font-extrabold text-white text-center mb-2 group-hover:text-blue-200 transition-colors duration-300 z-10 drop-shadow-lg"
+        className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white text-center mb-2 group-hover:text-blue-200 transition-colors duration-300 z-10 drop-shadow-lg"
         animate={{ scale: [1, 1.08, 1], textShadow: [
           "0 0 16px #6366f1cc, 0 0 32px #a78bfa88",
           "0 0 32px #6366f1cc, 0 0 48px #a78bfa88",
@@ -99,9 +99,9 @@ export function StatCard({ icon, title, value, description }: StatCardProps) {
         {displayValue}
       </motion.p>
       {/* Línea decorativa */}
-      <div className="h-1 w-16 mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-full group-hover:w-3/4 transition-all duration-300 z-10" />
+      <div className="h-1 w-12 sm:w-16 mx-auto bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 rounded-full group-hover:w-3/4 transition-all duration-300 z-10" />
       {/* Descripción */}
-      <p className="text-blue-100/80 mt-4 text-center text-lg group-hover:text-blue-100/90 transition-colors duration-300 z-10">
+      <p className="text-blue-100/80 mt-3 sm:mt-4 text-center text-sm sm:text-base md:text-lg group-hover:text-blue-100/90 transition-colors duration-300 z-10">
           {description}
         </p>
     </motion.div>

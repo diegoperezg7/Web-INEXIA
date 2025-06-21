@@ -226,7 +226,7 @@ export function ContactForm({ ctaId }: ContactFormProps) {
   }
 
   return (
-    <form id="contact-form" onSubmit={handleSubmit} className="space-y-4 relative">
+    <form id="contact-form" onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 relative">
       {/* Decorative elements */}
       <div className="absolute -right-4 -top-4 w-20 h-20 bg-blue-500/5 rounded-full blur-lg"></div>
       <div className="absolute -left-4 -bottom-4 w-20 h-20 bg-purple-500/5 rounded-full blur-lg"></div>
@@ -237,18 +237,18 @@ export function ContactForm({ ctaId }: ContactFormProps) {
       <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-blue-500/30 rounded-bl"></div>
       <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-blue-500/30 rounded-br"></div>
 
-      {error && <div className="bg-red-900/20 text-red-300 p-3 rounded-lg text-sm mb-4">{error}</div>}
+      {error && <div className="bg-red-900/20 text-red-300 p-3 rounded-lg text-sm mb-3 sm:mb-4">{error}</div>}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         <div className="relative group">
-          <Label htmlFor="name" className="text-sm text-blue-200/70 mb-1 block">
+          <Label htmlFor="name" className="text-xs sm:text-sm text-blue-200/70 mb-1 block">
             Nombre
           </Label>
           <Input
             id="name"
             name="name"
             placeholder="Tu nombre"
-            className="bg-blue-900/20 border-blue-500/20 text-white placeholder:text-blue-200/50 focus-visible:ring-blue-500 transition-all duration-300 group-hover:border-blue-500/40"
+            className="bg-blue-900/20 border-blue-500/20 text-white placeholder:text-blue-200/50 focus-visible:ring-blue-500 transition-all duration-300 group-hover:border-blue-500/40 text-sm sm:text-base"
             required
             value={formData.name}
             onChange={handleChange}
@@ -257,7 +257,7 @@ export function ContactForm({ ctaId }: ContactFormProps) {
         </div>
 
         <div className="relative group">
-          <Label htmlFor="email" className="text-sm text-blue-200/70 mb-1 block">
+          <Label htmlFor="email" className="text-xs sm:text-sm text-blue-200/70 mb-1 block">
             Email
           </Label>
           <Input
@@ -265,7 +265,7 @@ export function ContactForm({ ctaId }: ContactFormProps) {
             name="email"
             type="email"
             placeholder="tu@email.com"
-            className="bg-blue-900/20 border-blue-500/20 text-white placeholder:text-blue-200/50 focus-visible:ring-blue-500 transition-all duration-300 group-hover:border-blue-500/40"
+            className="bg-blue-900/20 border-blue-500/20 text-white placeholder:text-blue-200/50 focus-visible:ring-blue-500 transition-all duration-300 group-hover:border-blue-500/40 text-sm sm:text-base"
             required
             value={formData.email}
             onChange={handleChange}
@@ -274,16 +274,16 @@ export function ContactForm({ ctaId }: ContactFormProps) {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
         <div className="relative group">
-          <Label htmlFor="company" className="text-sm text-blue-200/70 mb-1 block">
+          <Label htmlFor="company" className="text-xs sm:text-sm text-blue-200/70 mb-1 block">
             Empresa
           </Label>
           <Input
             id="company"
             name="company"
             placeholder="Nombre de tu empresa"
-            className="bg-blue-900/20 border-blue-500/20 text-white placeholder:text-blue-200/50 focus-visible:ring-blue-500 transition-all duration-300 group-hover:border-blue-500/40"
+            className="bg-blue-900/20 border-blue-500/20 text-white placeholder:text-blue-200/50 focus-visible:ring-blue-500 transition-all duration-300 group-hover:border-blue-500/40 text-sm sm:text-base"
             required
             value={formData.company}
             onChange={handleChange}
@@ -292,14 +292,14 @@ export function ContactForm({ ctaId }: ContactFormProps) {
         </div>
 
         <div className="relative group">
-          <Label htmlFor="phone" className="text-sm text-blue-200/70 mb-1 block">
+          <Label htmlFor="phone" className="text-xs sm:text-sm text-blue-200/70 mb-1 block">
             Teléfono
           </Label>
           <Input
             id="phone"
             name="phone"
             placeholder="+34 600 000 000"
-            className="bg-blue-900/20 border-blue-500/20 text-white placeholder:text-blue-200/50 focus-visible:ring-blue-500 transition-all duration-300 group-hover:border-blue-500/40"
+            className="bg-blue-900/20 border-blue-500/20 text-white placeholder:text-blue-200/50 focus-visible:ring-blue-500 transition-all duration-300 group-hover:border-blue-500/40 text-sm sm:text-base"
             value={formData.phone}
             onChange={handleChange}
           />
@@ -308,13 +308,13 @@ export function ContactForm({ ctaId }: ContactFormProps) {
       </div>
 
       <div className="relative group">
-        <Label htmlFor="sector" className="text-sm text-blue-200/70 mb-1 block">
+        <Label htmlFor="sector" className="text-xs sm:text-sm text-blue-200/70 mb-1 block">
           Sector de la empresa
         </Label>
         <Select value={formData.sector} onValueChange={(value) => handleSelectChange("sector", value)}>
           <SelectTrigger
             id="sector"
-            className="bg-blue-900/20 border-blue-500/20 text-white focus:ring-blue-500 transition-all duration-300 hover:border-blue-500/40"
+            className="bg-blue-900/20 border-blue-500/20 text-white focus:ring-blue-500 transition-all duration-300 hover:border-blue-500/40 text-sm sm:text-base"
           >
             <SelectValue placeholder="Selecciona un sector" />
           </SelectTrigger>
@@ -330,14 +330,14 @@ export function ContactForm({ ctaId }: ContactFormProps) {
       </div>
 
       <div className="relative group">
-        <Label htmlFor="message" className="text-sm text-blue-200/70 mb-1 block">
+        <Label htmlFor="message" className="text-xs sm:text-sm text-blue-200/70 mb-1 block">
           Mensaje
         </Label>
         <Textarea
           id="message"
           name="message"
           placeholder="¿Cómo podemos ayudarte?"
-          className="bg-blue-900/20 border-blue-500/20 text-white placeholder:text-blue-200/50 focus-visible:ring-blue-500 min-h-[100px] transition-all duration-300 group-hover:border-blue-500/40"
+          className="bg-blue-900/20 border-blue-500/20 text-white placeholder:text-blue-200/50 focus-visible:ring-blue-500 min-h-[80px] sm:min-h-[100px] transition-all duration-300 group-hover:border-blue-500/40 text-sm sm:text-base"
           required
           value={formData.message}
           onChange={handleChange}
@@ -345,43 +345,43 @@ export function ContactForm({ ctaId }: ContactFormProps) {
         <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-focus-within:w-full group-hover:w-1/4 transition-all duration-300"></div>
       </div>
 
-      <div className="space-y-3">
-        <label className="flex items-center gap-2 text-blue-200/80 text-sm">
+      <div className="space-y-2 sm:space-y-3">
+        <label className="flex items-start gap-2 text-blue-200/80 text-xs sm:text-sm">
           <input
             type="checkbox"
             checked={privacyConsent}
             onChange={e => setPrivacyConsent(e.target.checked)}
             required
-            className="accent-blue-500 w-4 h-4 rounded"
+            className="accent-blue-500 w-3 h-3 sm:w-4 sm:h-4 rounded mt-0.5"
           />
-          He leído y acepto la <a href="/politica-privacidad" target="_blank" className="underline text-blue-300 hover:text-blue-200">Política de Privacidad</a> <span className="text-red-400">*</span>
+          <span>He leído y acepto la <a href="/politica-privacidad" target="_blank" className="underline text-blue-300 hover:text-blue-200">Política de Privacidad</a> <span className="text-red-400">*</span></span>
         </label>
-        <label className="flex items-center gap-2 text-blue-200/80 text-sm">
+        <label className="flex items-start gap-2 text-blue-200/80 text-xs sm:text-sm">
           <input
             type="checkbox"
             checked={marketingConsent}
             onChange={e => setMarketingConsent(e.target.checked)}
-            className="accent-blue-500 w-4 h-4 rounded"
+            className="accent-blue-500 w-3 h-3 sm:w-4 sm:h-4 rounded mt-0.5"
           />
-          Quiero recibir comunicaciones comerciales
+          <span>Quiero recibir comunicaciones comerciales</span>
         </label>
       </div>
 
       <Button
         type="submit"
-        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-none shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 relative overflow-hidden group"
+        className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-none shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 relative overflow-hidden group text-sm sm:text-base"
         disabled={isSubmitting || !privacyConsent}
       >
         <span className="relative z-10">
           {isSubmitting ? (
             <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin inline" />
+              <Loader2 className="mr-2 h-3 w-3 sm:h-4 sm:w-4 animate-spin inline" />
               Enviando...
             </>
           ) : (
             <>
               Enviar mensaje
-              <ArrowRight className="ml-2 h-4 w-4 inline group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4 inline group-hover:translate-x-1 transition-transform" />
             </>
           )}
         </span>
