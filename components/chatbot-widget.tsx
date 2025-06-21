@@ -33,7 +33,7 @@ export function ChatbotWidget() {
     setInput("")
     setLoading(true)
     try {
-      const res = await fetch("https://neuraxagencia.app.n8n.cloud/webhook/47fba7d1-5027-4e8d-bfa8-2ec2655bf5eb/chat", {
+      const res = await fetch("https://neuraxagencia.app.n8n.cloud/webhook/3a846d60-e61c-489c-99bd-51c2cc510671/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: input })
