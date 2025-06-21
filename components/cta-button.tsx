@@ -8,9 +8,11 @@ import { supabase } from "@/lib/supabase"
 interface CtaButtonProps {
   text: string
   className?: string
+  ctaId?: string
+  onClick?: () => void
 }
 
-export function CtaButton({ text, className = "" }: CtaButtonProps) {
+export function CtaButton({ text, className = "", ctaId, onClick }: CtaButtonProps) {
   const [isLoading, setIsLoading] = useState(false)
 
   const handleClick = async () => {
@@ -26,12 +28,15 @@ export function CtaButton({ text, className = "" }: CtaButtonProps) {
       })
     }
 
+    if (onClick) onClick()
+
     // Registrar el clic en el botón CTA
     try {
       setIsLoading(true)
       await supabase.from("cta_clicks").insert([
         {
           button_text: text,
+          cta_id: ctaId,
           page_location: window.location.pathname,
           referrer: document.referrer || "direct",
         },

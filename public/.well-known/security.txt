@@ -1,0 +1,3 @@
+# security.txt para NeuraX
+Contact: mailto:security@neurax.ai
+# TODO: Añadir más información de seguridad si es necesario 

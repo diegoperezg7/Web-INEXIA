@@ -24,6 +24,8 @@ export default function Home() {
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.9])
 
   const [openServices, setOpenServices] = useState<{ [key: string]: boolean }>({})
+  const [ctaId, setCtaId] = useState<string | null>(null)
+  const [ctaText, setCtaText] = useState<string>("")
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,6 +43,18 @@ export default function Home() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    // A/B test manual: 50% A, 50% B
+    const isA = Math.random() < 0.5
+    if (isA) {
+      setCtaId("cta-hero-A")
+      setCtaText("Quiero mi IA en 7 días")
+    } else {
+      setCtaId("cta-hero-B")
+      setCtaText("Empieza a ahorrar horas ¡ya!")
+    }
   }, [])
 
   return (
@@ -247,7 +261,16 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <CtaButton text="Aumenta tu productividad +40%" className="size-lg" />
+            {ctaId && (
+              <CtaButton
+                id={ctaId}
+                text={ctaText}
+                className="size-lg"
+                onClick={() => {
+                  // Tracking extra opcional aquí si se quiere
+                }}
+              />
+            )}
 
             <Button
               variant="outline"
@@ -524,7 +547,7 @@ export default function Home() {
                     <p className="text-blue-200/70 mb-6">
                       Descubre cómo la IA puede transformar tu negocio en menos de 30 minutos
                     </p>
-                    <ContactForm />
+                    <ContactForm ctaId={ctaId} />
                   </div>
                 </div>
               </motion.div>
@@ -792,10 +815,17 @@ export default function Home() {
               </a>
             </div>
 
+            {/* Legal Links */}
+            <div className="flex flex-wrap justify-center gap-6 mb-4">
+              <a href="/aviso-legal" className="text-blue-400 hover:text-blue-200 transition-colors">Aviso Legal</a>
+              <a href="/politica-privacidad" className="text-blue-400 hover:text-blue-200 transition-colors">Política de Privacidad</a>
+              <a href="/politica-cookies" className="text-blue-400 hover:text-blue-200 transition-colors">Política de Cookies</a>
+            </div>
+
             {/* Copyright */}
             <div className="text-center text-blue-300/60 relative">
               <div className="h-px w-24 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent mb-4 mx-auto"></div>
-              &copy; {new Date().getFullYear()} NeuraX. Todos los derechos reservados.
+              &copy; {new Date().getFullYear()} NeuraX · Madrid, España.
             </div>
           </div>
         </div>

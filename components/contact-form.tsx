@@ -20,6 +20,10 @@ interface FormData {
   message: string
 }
 
+interface ContactFormProps {
+  ctaId?: string | null
+}
+
 const COMPANY_SECTORS = [
   { value: "tecnologia", label: "Tecnología" },
   { value: "finanzas", label: "Finanzas" },
@@ -31,7 +35,7 @@ const COMPANY_SECTORS = [
   { value: "otro", label: "Otro" },
 ]
 
-export function ContactForm() {
+export function ContactForm({ ctaId }: ContactFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -43,6 +47,8 @@ export function ContactForm() {
     sector: "",
     message: "",
   })
+  const [privacyConsent, setPrivacyConsent] = useState(false)
+  const [marketingConsent, setMarketingConsent] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -68,6 +74,10 @@ export function ContactForm() {
           telefono: formData.phone,
           sector: formData.sector,
           mensaje: formData.message,
+          privacyConsent,
+          marketingConsent,
+          gdprConsentDate: new Date().toISOString(),
+          ctaId,
         },
       ])
       if (supabaseError) throw supabaseError
@@ -87,6 +97,10 @@ export function ContactForm() {
             sector: formData.sector,
             mensaje: formData.message,
             fecha_envio: new Date().toISOString(),
+            privacyConsent,
+            marketingConsent,
+            gdprConsentDate: new Date().toISOString(),
+            ctaId,
           }),
         })
       } catch (webhookError) {
@@ -327,10 +341,32 @@ export function ContactForm() {
         <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-focus-within:w-full group-hover:w-1/4 transition-all duration-300"></div>
       </div>
 
+      <div className="space-y-3">
+        <label className="flex items-center gap-2 text-blue-200/80 text-sm">
+          <input
+            type="checkbox"
+            checked={privacyConsent}
+            onChange={e => setPrivacyConsent(e.target.checked)}
+            required
+            className="accent-blue-500 w-4 h-4 rounded"
+          />
+          He leído y acepto la <a href="/politica-privacidad" target="_blank" className="underline text-blue-300 hover:text-blue-200">Política de Privacidad</a> <span className="text-red-400">*</span>
+        </label>
+        <label className="flex items-center gap-2 text-blue-200/80 text-sm">
+          <input
+            type="checkbox"
+            checked={marketingConsent}
+            onChange={e => setMarketingConsent(e.target.checked)}
+            className="accent-blue-500 w-4 h-4 rounded"
+          />
+          Quiero recibir comunicaciones comerciales
+        </label>
+      </div>
+
       <Button
         type="submit"
         className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-none shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 relative overflow-hidden group"
-        disabled={isSubmitting}
+        disabled={isSubmitting || !privacyConsent}
       >
         <span className="relative z-10">
           {isSubmitting ? (
