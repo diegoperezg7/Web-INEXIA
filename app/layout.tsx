@@ -3,6 +3,7 @@ import { Rajdhani, Audiowide } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import type React from "react"
 import { Analytics } from "@vercel/analytics/next"
+import ChatbotWidget from "@/components/chatbot-widget"
 
 // Tipografía principal futurista con buena legibilidad
 const rajdhani = Rajdhani({
@@ -33,8 +34,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${rajdhani.variable} ${audiowide.variable} ${rajdhani.className}`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" disableSystemTheme>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
           {children}
+          <ChatbotWidget />
         </ThemeProvider>
       </body>
     </html>
@@ -45,14 +47,3 @@ export const metadata = {
   generator: "v0.dev",
 }
 
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body>
-        {children}
-        <Analytics />
-      </body>
-    </html>
-  );
-}
