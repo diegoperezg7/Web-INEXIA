@@ -629,7 +629,7 @@ export default function Home() {
                   <p className="italic text-blue-500 dark:text-blue-300 text-base mb-3">“A veces una simple conversación lo cambia todo.”</p>
                   <div className="flex items-center justify-center gap-2 mb-2">
                     <span className="text-lg">📩</span>
-                    <span className="text-blue-800 dark:text-blue-200 font-semibold select-all">info@neurax.com</span>
+                    <span className="text-blue-800 dark:text-blue-200 font-semibold select-all">agencianeurax@gmail.com</span>
                   </div>
                 </motion.div>
 
@@ -769,7 +769,7 @@ export default function Home() {
             {/* Contact Information */}
             <div className="flex flex-wrap justify-center gap-6 mb-8">
               <a
-                href="mailto:info@neurax.com"
+                href="mailto:agencianeurax@gmail.com"
                 className="flex items-center text-blue-300 hover:text-blue-200 transition-colors"
               >
                 <svg
@@ -787,7 +787,7 @@ export default function Home() {
                   <rect width="20" height="16" x="2" y="4" rx="2" />
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
-                info@neurax.com
+                agencianeurax@gmail.com
               </a>
 
               <a
