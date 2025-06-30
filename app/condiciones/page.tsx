@@ -2,7 +2,7 @@ export default function Page() {
   return (
     <main className="prose mx-auto px-4 py-16">
       <h1>Condiciones Generales</h1>
-      <p><strong>Responsable:</strong> Diego Pérez García · NIF: 53939679-X · Domicilio: Calle Arizónicas 1, 28223 Madrid · Email: agencianeurax@gmail.com · Dominio: https://agencianeurax.com</p>
+      <p><strong>Responsable:</strong> Diego Pérez García · Madrid · Email: agencianeurax@gmail.com · Dominio: https://agencianeurax.com</p>
       <h2>Objeto</h2>
       <p>Regular el uso de la web y la relación con los usuarios. <strong>TODO: completar condiciones específicas.</strong></p>
       <h2>Obligaciones de los usuarios</h2>

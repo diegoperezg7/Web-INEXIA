@@ -2,7 +2,7 @@ export default function Page() {
   return (
     <main className="prose mx-auto px-4 py-16">
       <h1>Política de Privacidad</h1>
-      <p><strong>Responsable:</strong> Diego Pérez García · NIF: 53939679-X · Domicilio: Calle Arizónicas 1, 28223 Madrid · Email: agencianeurax@gmail.com · Dominio: https://agencianeurax.com</p>
+      <p><strong>Responsable:</strong> Diego Pérez García · Madrid · Email: agencianeurax@gmail.com · Dominio: https://agencianeurax.com</p>
       <h2>Finalidad</h2>
       <p>Gestionar la relación con los usuarios y el envío de información comercial si se consiente. <strong>TODO: completar detalles de tratamiento.</strong></p>
       <h2>Legitimación</h2>

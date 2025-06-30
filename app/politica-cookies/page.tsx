@@ -2,7 +2,7 @@ export default function Page() {
   return (
     <main className="prose mx-auto px-4 py-16">
       <h1>Política de Cookies</h1>
-      <p><strong>Responsable:</strong> Diego Pérez García · NIF: 53939679-X · Domicilio: Calle Arizónicas 1, 28223 Madrid · Email: agencianeurax@gmail.com · Dominio: https://agencianeurax.com</p>
+      <p><strong>Responsable:</strong> Diego Pérez García · Madrid · Email: agencianeurax@gmail.com · Dominio: https://agencianeurax.com</p>
       <h2>¿Qué son las cookies?</h2>
       <p>Son archivos que se descargan en su dispositivo al acceder a determinadas webs. <strong>TODO: completar tipos y usos concretos.</strong></p>
       <h2>Tipos de cookies utilizadas</h2>
