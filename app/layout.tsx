@@ -88,6 +88,7 @@ export default function RootLayout({
           {children}
           <ChatbotWidget />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   )
