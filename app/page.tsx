@@ -746,7 +746,7 @@ export default function Home() {
                 </svg>
                 <div className="absolute -inset-2 bg-blue-500/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></div>
               </a>
-              <a href="#" className="text-blue-400 hover:text-blue-300 relative group p-2">
+              <a href="https://www.instagram.com/agencianeurax/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 relative group p-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="20"
