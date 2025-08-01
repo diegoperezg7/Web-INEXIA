@@ -37,7 +37,7 @@ export function LogoAnimation() {
           >
             <Image
               src="/logo.png"
-              alt="NeuraX Logo"
+              alt="Inexia Logo"
               width={120}
               height={120}
               className="relative z-10 object-contain"

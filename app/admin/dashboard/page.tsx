@@ -69,7 +69,7 @@ export default function AdminDashboardPage() {
       <header className="bg-blue-900/20 backdrop-blur-lg border-b border-blue-500/10 sticky top-0 z-10">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <h1 className="text-xl font-bold text-white">
-            NeuraX <span className="text-blue-400">Admin</span>
+            Inexia <span className="text-blue-400">Admin</span>
           </h1>
 
           <div className="flex items-center gap-4">
