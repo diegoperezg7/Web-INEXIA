@@ -82,11 +82,11 @@ export default function Home() {
                 }}
               >
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
-                alt="Inexia"
-                  width={110}
-                  height={110}
-                  className="h-16 md:h-20 w-auto object-contain transition-all duration-300"
+                src="/inexia-logo.png"
+                alt="INEXIA"
+                  width={180}
+                  height={180}
+                  className="h-24 md:h-28 w-auto object-contain transition-all duration-300"
               />
               </div>
             </motion.div>
@@ -223,9 +223,9 @@ export default function Home() {
           >
             <Image
               src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview%20%281%29-qLXLYtKBm5sRI372qiQPuuVWV3nz9V.png"
-              alt="Inexia Logo"
-              width={20}
-              height={20}
+              alt="INEXIA Logo"
+              width={180}
+              height={180}
               className="w-20 sm:w-24 sm:h-24 md:w-32 md:h-32 object-contain"
             />
           </motion.div>
@@ -305,7 +305,7 @@ export default function Home() {
                 >
                   <img
                     src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Captura_de_pantalla_2025-04-12_115537-removebg-preview%20%281%29-Y9mMLvfvsD4U6yEFAGjItyStnF1prK.png"
-                    alt="Flujo de trabajo de automatización Inexia"
+                    alt="Flujo de trabajo de automatización INEXIA"
                     className="w-full h-full object-contain"
                   />
                 </motion.div>
@@ -682,15 +682,15 @@ export default function Home() {
                 }}
               >
               <Image
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview-removebg-preview-OMu0aFJDRtDdZErB7Q2w9ee9e3p9dF.png"
-                alt="Inexia Logo"
-                width={80}
-                height={80}
+                src="/inexia-logo.png"
+                alt="INEXIA Logo"
+                width={140}
+                height={140}
                 className="mx-auto"
               />
               </div>
               <h3 className="text-xl font-bold mt-2 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-                Agencia de Inteligencia Artificial Inexia
+                Agencia de Inteligencia Artificial INEXIA
               </h3>
             </div>
 
@@ -719,7 +719,7 @@ export default function Home() {
             {/* Contact Information */}
             <div className="flex flex-wrap justify-center gap-6 mb-8">
               <a
-                href="mailto:agencianeurax@gmail.com"
+                href="mailto:agenciainexia@gmail.com"
                 className="flex items-center text-blue-300 hover:text-blue-200 transition-colors"
               >
                 <svg
@@ -772,7 +772,7 @@ export default function Home() {
             {/* Copyright */}
             <div className="text-center text-blue-300/60 relative">
               <div className="h-px w-24 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent mb-4 mx-auto"></div>
-              © 2025 Inexia — Agencia de Inteligencia Artificial · CIF · Madrid, España
+              © 2025 INEXIA — Agencia de Inteligencia Artificial · CIF · Madrid, España
             </div>
           </div>
         </div>

@@ -21,7 +21,7 @@ const audiowide = Audiowide({
 })
 
 export const metadata = {
-  title: "Inexia - Agencia de Inteligencia Artificial",
+  title: "INEXIA - Agencia de Inteligencia Artificial",
   description: "Agencia de inteligencia artificial y automatización no-code para empresas ágiles. Automatiza tu empresa con IA en días, no en meses.",
   icons: {
     icon: "/favicon.png",

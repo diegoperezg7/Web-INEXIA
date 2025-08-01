@@ -36,10 +36,10 @@ export function LogoAnimation() {
             }}
           >
             <Image
-              src="/logo.png"
-              alt="Inexia Logo"
-              width={120}
-              height={120}
+              src="/inexia-logo.png"
+              alt="INEXIA Logo"
+              width={180}
+              height={180}
               className="relative z-10 object-contain"
             />
           </motion.div>

@@ -8,9 +8,9 @@ export default function Page() {
       <h2>Obligaciones de los usuarios</h2>
       <p>El usuario se compromete a hacer un uso adecuado de la web y a no realizar actividades ilícitas.</p>
       <h2>Exclusión de responsabilidad</h2>
-      <p>Inexia no se responsabiliza de los daños derivados del uso de la web.</p>
+      <p>INEXIA no se responsabiliza de los daños derivados del uso de la web.</p>
       <h2>Modificaciones</h2>
-      <p>Inexia podrá modificar estas condiciones en cualquier momento.</p>
+      <p>INEXIA podrá modificar estas condiciones en cualquier momento.</p>
       <h2>Legislación aplicable</h2>
       <p>Estas condiciones se rigen por la legislación española.</p>
       <p><strong>TODO: revisar y completar según asesoría legal.</strong></p>

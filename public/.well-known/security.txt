@@ -1,4 +1,4 @@
-# security.txt para Inexia
+# security.txt para INEXIA
 Contact: mailto:security@agencianeurax.com
 Preferred-Languages: es, en
 # TODO: Añadir más información de seguridad si es necesario 

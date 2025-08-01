@@ -1,23 +1,23 @@
-# Inexia Landing Page
+# INEXIA Landing Page
 
-Esta es la landing page de Inexia, un proyecto diseñado para presentar y promocionar los servicios y valores de Inexia de forma atractiva y moderna.
+Esta es la landing page de INEXIA, un proyecto diseñado para presentar y promocionar los servicios y valores de INEXIA de forma atractiva y moderna.
 
 ## Descripción
 
-Inexia es una plataforma innovadora orientada a una Agencia de Inteligencia Artificial y automatización de procesos y tareas repetitivas. Esta landing page tiene como objetivo captar la atención de los visitantes, explicar los beneficios de Inexia y facilitar el contacto o la conversión de usuarios interesados.
+INEXIA es una plataforma innovadora orientada a una Agencia de Inteligencia Artificial y automatización de procesos y tareas repetitivas. Esta landing page tiene como objetivo captar la atención de los visitantes, explicar los beneficios de INEXIA y facilitar el contacto o la conversión de usuarios interesados.
 
 ## Características principales
 
 * Diseño responsivo y moderno.
-* Secciones informativas sobre los servicios/productos de Inexia.
+* Secciones informativas sobre los servicios/productos de INEXIA.
 * Integración con formularios de contacto.
 * Animaciones y elementos visuales atractivos.
 * Optimización para SEO y redes sociales.
 
 ## Tecnologías utilizadas
 
-* \[Ejemplo: React, Next.js, Tailwind CSS, etc.\]
-* \[Enumera las tecnologías principales que utilizaste en el desarrollo\]
+* React, Next.js, Tailwind CSS, TypeScript
+* Otras tecnologías utilizadas en el desarrollo
 
 ## Contribuciones
 
