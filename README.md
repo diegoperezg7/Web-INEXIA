@@ -27,44 +27,6 @@ Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request p
 
 agencia-inexia.vercel.app/
 
-### Resources
-
- Readme
-
-###  Uh oh!
-
-There was an error while loading. Please reload this page.
-
-Activity
-
-### Stars
-
-**0** stars
-
-### Watchers
-
-**0** watching
-
-### Forks
-
-**0** forks
-
- Report repository
-
-## Releases
-
-No releases published
-
-## Packages0
-
- No packages published
-
-## Contributors2
-
-###  Uh oh!
-
-There was an error while loading. Please reload this page.
-
 ## Languages
 
 * TypeScript 97.8%
