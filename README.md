@@ -33,8 +33,7 @@ The contact form will be connected to `n8n` to:
 
 ## 📄 License
 
-El código de este proyecto es propietario. **Todos los derechos reservados.** No está permitido copiar, modificar, distribuir ni usar este código sin el permiso explícito del propietario.
-
+The code in this project is proprietary. **All rights reserved.** It is not permitted to copy, modify, distribute, or use this code without explicit permission from the owner.
 
 ### 💡 Looking to automate your business?
 
