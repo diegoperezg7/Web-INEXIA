@@ -15,6 +15,12 @@ import { CtaButton } from "@/components/cta-button"
 import { AgentCarouselPro } from "@/components/agent-carousel-pro"
 
 export default function Home() {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
   const [activeSection, setActiveSection] = useState("hero")
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const heroRef = useRef<HTMLDivElement>(null)
@@ -84,9 +90,9 @@ export default function Home() {
               <Image
                 src="/inexia-logo.png"
                 alt="INEXIA"
-                  width={180}
-                  height={180}
-                  className="h-24 md:h-28 w-auto object-contain transition-all duration-300"
+                  width={150}
+                  height={150}
+                  className="h-16 sm:h-20 md:h-24 w-auto object-contain transition-all duration-300"
               />
               </div>
             </motion.div>
@@ -142,54 +148,34 @@ export default function Home() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="fixed inset-0 z-40 bg-black/95 backdrop-blur-lg md:hidden">
-          <div className="container mx-auto px-4 py-8">
-            <div className="flex justify-end mb-8">
-              <Button variant="ghost" size="icon" className="text-blue-400" onClick={() => setMobileMenuOpen(false)}>
-                <X className="h-6 w-6" />
-              </Button>
-            </div>
+        <div className="container mx-auto px-4 py-6 sm:py-8 flex justify-center">
+          <div className="flex justify-center space-x-6 mb-6">
+            <Button variant="ghost" size="icon" className="text-blue-400 hover:bg-blue-500/10" onClick={() => setMobileMenuOpen(false)}>
+              <X className="h-5 w-5 sm:h-6 sm:w-6" />
+            </Button>
+          </div>
 
-            <nav className="flex flex-col space-y-6">
-              {[
-                { name: "Inicio", href: "#hero" },
-                { name: "Beneficios", href: "#benefits" },
-                { name: "Servicios", href: "#services" },
-                { name: "Agentes", href: "#agents" },
-                { name: "Contacto", href: "#cta" },
-              ].map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className={`text-xl font-medium ${
-                    activeSection === item.href.substring(1) ? "text-blue-400" : "text-white hover:text-blue-300"
-                  } transition-colors relative group overflow-hidden`}
-                  onClick={(e) => {
-                    e.preventDefault()
-                    const targetId = item.href.replace("#", "")
-                    const element = document.getElementById(targetId)
+          <nav className="flex flex-col space-y-4 sm:space-y-6">
+            {[
+              { name: "Inicio", href: "#hero" },
+              { name: "Beneficios", href: "#benefits" },
+              { name: "Servicios", href: "#services" },
+              { name: "Agentes", href: "#agents" },
+              { name: "Contacto", href: "#cta" },
+            ].map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className={`text-lg sm:text-xl font-medium py-2 ${
+                  activeSection === item.href.substring(1) ? "text-blue-400" : "text-white hover:text-blue-300"
+                } transition-colors relative group overflow-hidden`}
+                onClick={(e) => {
+                  e.preventDefault()
+                  const targetId = item.href.replace("#", "")
+                  const element = document.getElementById(targetId)
 
-                    if (element) {
-                      setMobileMenuOpen(false)
-                      window.scrollTo({
-                        top: element.offsetTop - 80,
-                        behavior: "smooth",
-                      })
-                    }
-                  }}
-                >
-                  {item.name}
-                  <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
-                </a>
-              ))}
-            </nav>
-
-            <div className="mt-12">
-              <Button
-                className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white relative overflow-hidden group"
-                onClick={() => {
-                  setMobileMenuOpen(false)
-                  const element = document.getElementById("cta")
                   if (element) {
+                    setMobileMenuOpen(false)
                     window.scrollTo({
                       top: element.offsetTop - 80,
                       behavior: "smooth",
@@ -197,13 +183,33 @@ export default function Home() {
                   }
                 }}
               >
-                <span className="relative z-10">Solicitar Información</span>
-                <ArrowRight className="ml-2 h-4 w-4 relative z-10 group-hover:translate-x-1 transition-transform" />
-                <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
-              </Button>
-            </div>
+                {item.name}
+                <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 group-hover:w-full transition-all duration-300"></div>
+              </a>
+            ))}
+          </nav>
+
+          <div className="mt-12">
+            <Button
+              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white relative overflow-hidden group"
+              onClick={() => {
+                setMobileMenuOpen(false)
+                const element = document.getElementById("cta")
+                if (element) {
+                  window.scrollTo({
+                    top: element.offsetTop - 80,
+                    behavior: "smooth",
+                  })
+                }
+              }}
+            >
+              <span className="relative z-10">Solicitar Información</span>
+              <ArrowRight className="ml-2 h-4 w-4 relative z-10 group-hover:translate-x-1 transition-transform" />
+              <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shine" />
+            </Button>
           </div>
         </div>
+      </div>
       )}
 
       {/* Hero Section */}
@@ -231,7 +237,7 @@ export default function Home() {
           </motion.div>
 
           <motion.h1
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 md:mb-6 text-zinc-300 tracking-tight leading-tight"
+            className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 md:mb-6 text-zinc-300 tracking-tight leading-tight px-2"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -240,23 +246,23 @@ export default function Home() {
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 text-transparent bg-clip-text">
               IA
             </span>{" "}
-            que trabajan para ti{" "}
+            que te devuelven{" "}
             <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 text-transparent bg-clip-text">
-              24/7
+              tu tiempo
             </span>
           </motion.h1>
 
           <motion.p
-            className="text-lg sm:text-xl md:text-2xl text-blue-100/80 max-w-3xl mx-auto mb-6 md:mb-10 px-4"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-blue-100/80 max-w-3xl mx-auto mb-6 md:mb-10 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Aumenta la eficiencia, reduce costes, escala sin límites.
+            Automatiza. Ahorra tiempo. Crece.
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-12 md:mb-16 px-4"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12 md:mb-16 px-4"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -264,7 +270,7 @@ export default function Home() {
             {ctaId && (
               <CtaButton
                 text={ctaText}
-                className="w-full sm:w-auto text-sm sm:text-base"
+                className="w-full sm:w-auto text-sm sm:text-base px-6 py-3"
                 ctaId={ctaId}
               />
             )}
@@ -272,7 +278,7 @@ export default function Home() {
             <Button
               variant="outline"
               size="default"
-              className="w-full sm:w-auto border-blue-500/50 text-blue-400 hover:bg-blue-950/30 hover:text-blue-300 relative overflow-hidden group text-sm sm:text-base"
+              className="w-full sm:w-auto border-blue-500/50 text-blue-400 hover:bg-blue-950/30 hover:text-blue-300 relative overflow-hidden group text-sm sm:text-base px-6 py-3"
               onClick={() => {
                 const element = document.getElementById("agents")
                 if (element) {
@@ -328,10 +334,10 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section id="benefits" className="py-12 md:py-20 relative z-10">
+      <section id="benefits" className="py-16 sm:py-20 md:py-32 relative z-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 relative">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight px-4">
               Resultados Extraordinarios Garantizados
             </h2>
             <div className="h-1 w-16 md:w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-4 md:mb-6"></div>
@@ -340,7 +346,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8 mb-12 md:mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 md:mb-16">
             <StatCard
               icon={<Clock className="h-8 w-8 text-blue-400" />}
               title="Ahorra tiempo operativo"
@@ -364,10 +370,10 @@ export default function Home() {
           </div>
 
           <div className="text-center relative">
-            <h3 className="text-xl sm:text-2xl md:text-4xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 text-transparent bg-clip-text relative z-10 tracking-tight px-4">
+          <h3 className="text-xl sm:text-2xl md:text-4xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-400 text-transparent bg-clip-text relative z-10 tracking-tight px-4">
               Menos código. Más impacto. Implementación exprés.
             </h3>
-
+            
             <Button
               size="default"
               className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white border-none shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40 transition-all duration-300 relative overflow-hidden group text-sm sm:text-base"
@@ -390,10 +396,10 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-12 md:py-20 relative z-10 bg-transparent">
+      <section id="services" className="py-16 sm:py-20 md:py-32 relative z-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16 relative">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 md:mb-8 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight px-4">
               Tecnología Revolucionaria a tu Alcance
             </h2>
             <div className="h-1 w-16 md:w-20 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mx-auto mb-4 md:mb-6"></div>
@@ -402,7 +408,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-start">
             <ServiceCard
               icon={<Briefcase className="h-10 w-10" />}
               title="Consultoría Estratégica"
@@ -463,10 +469,10 @@ export default function Home() {
       </section>
 
       {/* Agents Section */}
-      <section id="agents" className="py-20 relative z-10">
+      <section id="agents" className="py-16 sm:py-20 md:py-32 relative z-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-4 relative">
-            <h2 className="text-3xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text relative z-10 tracking-tight">
               Nuestros Agentes de IA
             </h2>
             <p className="text-base md:text-lg text-blue-100/80 max-w-2xl mx-auto mb-1">
@@ -482,7 +488,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section id="cta" className="py-20 relative z-10 bg-gradient-to-b from-transparent to-blue-950/20">
+      <section id="cta" className="py-16 sm:py-20 md:py-32 relative z-10 bg-gradient-to-b from-transparent to-blue-950/20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto relative">
             {/* Header Section */}
@@ -500,11 +506,11 @@ export default function Home() {
               </motion.div>
 
               <motion.h2
-                className="text-3xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text tracking-tight"
+                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 md:mb-8 text-white text-center px-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
               >
                 ¿Cuánto tiempo más vas a perder haciendo lo mismo a mano?
               </motion.h2>
@@ -529,7 +535,7 @@ export default function Home() {
             </div>
 
             {/* Main Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
               {/* Left Column - Contact Form */}
               <motion.div
                 className="relative"
@@ -591,7 +597,7 @@ export default function Home() {
                 </div>
 
                 {/* Stats Cards */}
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {[
                     { icon: Clock, label: "Tiempo ahorrado", value: "30%", color: "blue" },
                     { icon: TrendingUp, label: "Productividad", value: "+40%", color: "purple" },
@@ -664,68 +670,128 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 relative z-10 border-t border-blue-500/10">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center justify-center text-center">
-            {/* Logo */}
-            <div className="mb-4">
-              <div
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                  const element = document.getElementById("hero")
-                  if (element) {
-                    window.scrollTo({
-                      top: element.offsetTop - 80,
-                      behavior: "smooth",
-                    })
-                  }
-                }}
-              >
-              <Image
-                src="/inexia-logo.png"
-                alt="INEXIA Logo"
-                width={140}
-                height={140}
-                className="mx-auto"
-              />
+      <footer className="py-12 sm:py-16 relative z-10 border-t border-blue-500/10 bg-gradient-to-b from-transparent to-blue-950/20">
+        <div className="container mx-auto px-4 flex justify-center items-center flex-col">
+          <div className="text-center mb-8">
+            {/* Logo y descripción */}
+            <div className="flex flex-col items-center mb-6">
+              <div onClick={scrollToTop} className="cursor-pointer" aria-label="Volver al inicio">
+                <Image
+                  src="/inexia-logo.png"
+                  alt="INEXIA Logo"
+                  width={220}
+                  height={130}
+                  className="mb-4 w-36 h-18 sm:w-48 sm:h-24 object-contain"
+                />
               </div>
-              <h3 className="text-xl font-bold mt-2 bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
-                Agencia de Inteligencia Artificial INEXIA
-              </h3>
+              <p className="text-blue-300/70 text-sm mb-4">Agencia de Inteligencia Artificial</p>
             </div>
 
-            {/* Social Media Icons */}
-            <div className="flex justify-center gap-4 mb-6">
-              <a href="https://www.instagram.com/agencianeurax/" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 relative group p-2">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+            {/* Redes sociales */}
+            <div className="mb-6">
+              <h4 className="text-lg font-semibold text-white mb-3">Síguenos</h4>
+              <div className="flex justify-center gap-3">
+                <a 
+                  href="https://www.instagram.com/agencianeurax/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-blue-400 hover:text-blue-300 transition-colors p-2"
                 >
-                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
-                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                  <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
-                </svg>
-                <div className="absolute -inset-2 bg-blue-500/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></div>
-              </a>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                  </svg>
+                </a>
+                <a 
+                  href="https://www.linkedin.com/company/inexia-ai" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-blue-400 hover:text-blue-300 transition-colors p-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect width="4" height="12" x="2" y="9" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                </a>
+                <a 
+                  href="https://twitter.com/inexia_ai" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-blue-400 hover:text-blue-300 transition-colors p-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+                  </svg>
+                </a>
+                <a 
+                  href="https://www.youtube.com/@inexia-ai" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-blue-400 hover:text-blue-300 transition-colors p-2"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4A49.56 49.56 0 0 1 12 2a49.56 49.56 0 0 1 8.1 3.6A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4A49.56 49.56 0 0 1 12 22a49.56 49.56 0 0 1-8.1-3.6A2 2 0 0 1 2.5 17z" />
+                    <path d="m10 15 5-3-5-3z" />
+                  </svg>
+                </a>
+              </div>
             </div>
+          </div>
 
-            {/* Contact Information */}
-            <div className="flex flex-wrap justify-center gap-6 mb-8">
+          {/* Contacto */}
+          <div className="mb-6 text-center">
+            <h4 className="text-lg font-semibold text-white mb-4">Contacto</h4>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
               <a
                 href="mailto:agenciainexia@gmail.com"
                 className="flex items-center text-blue-300 hover:text-blue-200 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -737,17 +803,16 @@ export default function Home() {
                   <rect width="20" height="16" x="2" y="4" rx="2" />
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
-                agencianeurax@gmail.com
+                agenciainexia@gmail.com
               </a>
-
               <a
                 href="tel:+34608524638"
                 className="flex items-center text-blue-300 hover:text-blue-200 transition-colors"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
+                  width="16"
+                  height="16"
                   viewBox="0 0 24 24"
                   fill="none"
                   stroke="currentColor"
@@ -761,18 +826,31 @@ export default function Home() {
                 +34 608 52 46 38
               </a>
             </div>
+          </div>
 
-            {/* Legal Links */}
-            <div className="flex flex-wrap justify-center gap-6 mb-4">
-              <a href="/aviso-legal" className="text-blue-400 hover:text-blue-200 transition-colors">Aviso Legal</a>
-              <a href="/politica-privacidad" className="text-blue-400 hover:text-blue-200 transition-colors">Política de Privacidad</a>
-              <a href="/politica-cookies" className="text-blue-400 hover:text-blue-200 transition-colors">Política de Cookies</a>
+          {/* Navegación */}
+          <div className="text-center mb-6">
+            <h4 className="text-lg font-semibold text-white mb-4">Navegación</h4>
+            <ul className="flex flex-wrap justify-center gap-6">
+              <li><a href="#hero" className="text-blue-300 hover:text-blue-200 transition-colors">Inicio</a></li>
+              <li><a href="#services" className="text-blue-300 hover:text-blue-200 transition-colors">Servicios</a></li>
+              <li><a href="#agents" className="text-blue-300 hover:text-blue-200 transition-colors">Agentes IA</a></li>
+              <li><a href="#cta" className="text-blue-300 hover:text-blue-200 transition-colors">Contacto</a></li>
+            </ul>
+          </div>
+
+          {/* Línea divisoria */}
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-blue-500/20 to-transparent mb-6"></div>
+
+          {/* Texto legal */}
+          <div className="flex flex-col items-center text-xs sm:text-sm text-blue-300/60 gap-4">
+            <div>
+              &copy; 2025 INEXIA — Agencia de Inteligencia Artificial · CIF · Madrid, España
             </div>
-
-            {/* Copyright */}
-            <div className="text-center text-blue-300/60 relative">
-              <div className="h-px w-24 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent mb-4 mx-auto"></div>
-              © 2025 INEXIA — Agencia de Inteligencia Artificial · CIF · Madrid, España
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="/aviso-legal" className="hover:text-blue-300 transition-colors">Aviso Legal</a>
+              <a href="/politica-privacidad" className="hover:text-blue-300 transition-colors">Política de Privacidad</a>
+              <a href="/politica-cookies" className="hover:text-blue-300 transition-colors">Política de Cookies</a>
             </div>
           </div>
         </div>

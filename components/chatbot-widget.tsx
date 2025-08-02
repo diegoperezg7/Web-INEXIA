@@ -123,13 +123,13 @@ export function ChatbotWidget() {
                 <CardTitle className="text-2xl font-bold flex items-center gap-2 text-white">
                   <Image 
                     src="/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview (1).png" 
-                    alt="Neura" 
+                    alt="Nexi" 
                     width={32} 
                     height={32} 
                     className="object-contain"
                   />
                   <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                    Neura
+                    Nexi
                   </span>
                 </CardTitle>
                 <button 
@@ -153,14 +153,14 @@ export function ChatbotWidget() {
                   >
                     <Image 
                       src="/ChatGPT_Image_23_abr_2025__09_00_18-removebg-preview (1).png" 
-                      alt="Neura" 
+                      alt="Nexi" 
                       width={64} 
                       height={64} 
                       className="object-contain"
                     />
                     <div>
-                      <p className="font-medium text-blue-300">¡Hola! Soy tu asistente IA</p>
-                      <p className="text-sm text-muted-foreground mt-1">¿En qué puedo ayudarte hoy?</p>
+                    <p className="font-medium text-blue-300">¡Hola! Soy tu asistente IA</p>
+                    <p className="text-sm text-muted-foreground mt-1">¿En qué puedo ayudarte hoy?</p>
                     </div>
                   </motion.div>
                 )}
