@@ -84,7 +84,7 @@ export function ContactForm({ ctaId }: ContactFormProps) {
 
       // Enviar datos al webhook de n8n
       try {
-        await fetch("https://neuraxagencia.app.n8n.cloud/webhook-test/nuevo-lead", {
+        await fetch("https://arizonicas1.app.n8n.cloud/webhook/nuevo-lead", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
