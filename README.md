@@ -33,8 +33,9 @@ The contact form will be connected to `n8n` to:
 
 ## 📄 License
 
-This project is licensed under the MIT License.  
-You’re welcome to use or adapt the code with proper attribution.
+## Licencia
+
+El código de este proyecto es propietario. **Todos los derechos reservados.** No está permitido copiar, modificar, distribuir ni usar este código sin el permiso explícito del propietario.
 
 ---
 
