@@ -692,7 +692,7 @@ export default function Home() {
               <h4 className="text-lg font-semibold text-white mb-3">Síguenos</h4>
               <div className="flex justify-center gap-3">
                 <a 
-                  href="https://www.instagram.com/agencianeurax/" 
+                  href="https://www.instagram.com/agenciainexia?igsh=MWV3ZW1mOHV0OWs3Mw%3D%3D&utm_source=qr" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-blue-400 hover:text-blue-300 transition-colors p-2"
