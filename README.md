@@ -11,7 +11,7 @@ Our mission is simple:
 
 ## 🌐 Live Website
 
-👉 [https://agencia-inexia.vercel.app](https://agencia-inexia.vercel.app)
+👉 [https://www.agenciainexia.com](https://www.agenciainexia.com)
 
 ## 🚀 Tech Stack
 
@@ -37,4 +37,4 @@ The code in this project is proprietary. **All rights reserved.** It is not perm
 
 ## 💡 Looking to automate your business?
 
-Visit [agencia-inexia.vercel.app](https://agencia-inexia.vercel.app) or contact us at [agenciainexia@gmail.com](mailto:agenciainexia@gmail.com).
+Visit [https://www.agenciainexia.com](https://www.agenciainexia.com) or contact us at [agenciainexia@gmail.com](mailto:agenciainexia@gmail.com).
