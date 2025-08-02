@@ -1,6 +1,6 @@
-# Inexia Website
+# INEXIA Website
 
-This repository contains the official website for **Inexia**, an AI and automation agency focused on accelerating business processes through specialized AI agents and no-code solutions.
+This repository contains the official website for **INEXIA**, an AI and automation agency focused on accelerating business processes through specialized AI agents and no-code solutions.
 
 ## 🧠 About Inexia
 
