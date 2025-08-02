@@ -35,6 +35,6 @@ The contact form will be connected to `n8n` to:
 
 The code in this project is proprietary. **All rights reserved.** It is not permitted to copy, modify, distribute, or use this code without explicit permission from the owner.
 
-### 💡 Looking to automate your business?
+## 💡 Looking to automate your business?
 
 Visit [agencia-inexia.vercel.app](https://agencia-inexia.vercel.app) or contact us at [agenciainexia@gmail.com](mailto:agenciainexia@gmail.com).
