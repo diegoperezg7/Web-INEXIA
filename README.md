@@ -1,51 +1,43 @@
-# INEXIA Landing Page
+# Inexia Website
 
-Esta es la landing page de INEXIA, un proyecto diseñado para presentar y promocionar los servicios y valores de INEXIA de forma atractiva y moderna.
+This repository contains the official website for **Inexia**, an AI and automation agency focused on accelerating business processes through specialized AI agents and no-code solutions.
 
-## Descripción
+## 🧠 About Inexia
 
-INEXIA es una plataforma innovadora orientada a una Agencia de Inteligencia Artificial y automatización de procesos y tareas repetitivas. Esta landing page tiene como objetivo captar la atención de los visitantes, explicar los beneficios de INEXIA y facilitar el contacto o la conversión de usuarios interesados.
+At Inexia, we help businesses **save time, reduce costs, and scale faster** by developing smart AI agents and automations tailored to specific business areas — from HR and customer support to marketing, finance, and operations.
 
-## Características principales
+Our mission is simple:  
+**Give companies their time back** through intelligent automation.
 
-* Diseño responsivo y moderno.
-* Secciones informativas sobre los servicios/productos de INEXIA.
-* Integración con formularios de contacto.
-* Animaciones y elementos visuales atractivos.
-* Optimización para SEO y redes sociales.
+## 🌐 Live Website
 
-## Tecnologías utilizadas
+👉 [https://agencia-inexia.vercel.app](https://agencia-inexia.vercel.app)
 
-* React, Next.js, Tailwind CSS, TypeScript
-* Otras tecnologías utilizadas en el desarrollo
+## 🚀 Tech Stack
 
-## Contribuciones
+- **Framework:** [Next.js](https://nextjs.org)
+- **Language:** TypeScript (`.tsx`)
+- **Styling:** Tailwind CSS
+- **Deployment:** [Vercel](https://vercel.com)
+- **Integrations (planned):**
+  - `n8n` for backend automation workflows
+  - `Supabase` for form data storage
+  - `Telegram` for lead notifications
 
-Las contribuciones son bienvenidas. Por favor, abre un issue o un pull request para sugerir cambios o mejoras.
+## 📬 Contact Form Automation
 
-## About
+The contact form will be connected to `n8n` to:
+- Automatically send custom email replies
+- Store leads securely in Supabase
+- Notify the team via Telegram for instant follow-up
 
-agencia-inexia.vercel.app/
+## 📄 License
 
-## Languages
+This project is licensed under the MIT License.  
+You’re welcome to use or adapt the code with proper attribution.
 
-* TypeScript 97.8%
-* CSS 2.0%
-* JavaScript 0.2%
+---
 
-## Footer
+### 💡 Looking to automate your business?
 
- © 2025 GitHub, Inc.
-
-### Footer navigation
-
-* Terms
-* Privacy
-* Security
-* Status
-* Docs
-* Contact
-* Manage cookies
-* Do not share my personal information
-
- You can't perform that action at this time.
+Visit [agencia-inexia.vercel.app](https://agencia-inexia.vercel.app) or contact us at [hello@agencia-inexia.com](mailto:hello@agencia-inexia.com).
