@@ -40,4 +40,5 @@ You’re welcome to use or adapt the code with proper attribution.
 
 ### 💡 Looking to automate your business?
 
-Visit [agencia-inexia.vercel.app](https://agencia-inexia.vercel.app) or contact us at [hello@agencia-inexia.com](mailto:hello@agencia-inexia.com).
+
+Visit [agencia-inexia.vercel.app](https://agencia-inexia.vercel.app) or contact us at [agenciainexia@gmail.com](mailto:).
