@@ -845,7 +845,7 @@ export default function Home() {
           {/* Texto legal */}
           <div className="flex flex-col items-center text-xs sm:text-sm text-blue-300/60 gap-4">
             <div>
-              &copy; 2025 INEXIA — Agencia de Inteligencia Artificial · CIF · Madrid, España
+              &copy; 2025 INEXIA — Agencia de Inteligencia Artificial · Todos los derechos reservados · Madrid, España
             </div>
             <div className="flex flex-wrap justify-center gap-4">
               <a href="/aviso-legal" className="hover:text-blue-300 transition-colors">Aviso Legal</a>
