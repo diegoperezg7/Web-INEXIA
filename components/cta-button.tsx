@@ -15,12 +15,9 @@ interface CtaButtonProps {
 export function CtaButton({ text, className = "", ctaId, onClick }: CtaButtonProps) {
   const [isLoading, setIsLoading] = useState(false)
 
-  const handleClick = async () => {
-    // Desplazar a la sección de contacto
-    let element = document.getElementById("contact-form")
-    if (!element) {
-      element = document.getElementById("cta")
-    }
+ const handleClick = async () => {
+    // Desplazar a la sección de servicios
+    const element = document.getElementById("services")
     if (element) {
       window.scrollTo({
         top: element.offsetTop - 80,
