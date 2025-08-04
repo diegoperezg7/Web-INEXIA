@@ -11,7 +11,7 @@ import { Users, MessageSquare, BarChart3, TrendingUp, FileText, Shield } from "l
 const agents = [
   {
     icon: <Users className="h-10 w-10" />,
-    name: "TalentBot",
+    name: "Agente Talento IA",
     description: "Automatiza procesos de reclutamiento y onboarding con IA avanzada",
     stats: [
       { label: "Tiempo de contratación", value: "-40%" },
@@ -24,7 +24,7 @@ const agents = [
   },
   {
     icon: <MessageSquare className="h-10 w-10" />,
-    name: "ClientCare AI",
+    name: "Agente Cliente IA",
     description: "Asistente de atención al cliente 24/7 con respuestas personalizadas",
     stats: [
       { label: "Tiempo de respuesta", value: "-85%" },
@@ -37,7 +37,7 @@ const agents = [
   },
   {
     icon: <BarChart3 className="h-10 w-10" />,
-    name: "FinanceFlow",
+    name: "Agente Contable IA",
     description: "Automatiza facturación, pagos y reportes financieros",
     stats: [
       { label: "Tiempo administrativo", value: "-60%" },
