@@ -10,7 +10,7 @@ import { X } from "lucide-react"
 const agents = [
   {
     icon: <BarChart3 className="h-8 w-8" />,
-    name: "FinanceFlow",
+    name: "Agente Contable IA",
     description: "Agente de contabilidad (facturación, informes, pagos).",
     stats: [
       { label: "Automatización de facturación", value: "Sí" },
@@ -20,7 +20,7 @@ const agents = [
   },
   {
     icon: <TrendingUp className="h-8 w-8" />,
-    name: "MarketingWise AI",
+    name: "Agente Marketing IA",
     description: "Planificación y publicación automatizada de contenido.",
     stats: [
       { label: "Automatización de publicaciones", value: "Sí" },
@@ -30,7 +30,7 @@ const agents = [
   },
   {
     icon: <MessageSquare className="h-8 w-8" />,
-    name: "ClientCare AI",
+    name: "Agente Cliente IA",
     description: "Atención al cliente por email o formularios.",
     stats: [
       { label: "Soporte 24/7", value: "Sí" },
@@ -40,7 +40,7 @@ const agents = [
   },
   {
     icon: <Users className="h-8 w-8" />,
-    name: "TalentBot",
+    name: "Agente Talento IA",
     description: "Reclutamiento y RRHH automatizado.",
     stats: [
       { label: "Automatización de RRHH", value: "Sí" },
@@ -50,7 +50,7 @@ const agents = [
   },
   {
     icon: <Shield className="h-8 w-8" />,
-    name: "LegalAssist AI",
+    name: "Agente Legal IA",
     description: "Gestión de documentación legal básica.",
     stats: [
       { label: "Documentos legales", value: "Sí" },
@@ -60,7 +60,7 @@ const agents = [
   },
   {
     icon: <FileText className="h-8 w-8" />,
-    name: "OfficeAssist AI",
+    name: "Agente Oficina IA",
     description: "Asistencia administrativa general.",
     stats: [
       { label: "Tareas administrativas", value: "Sí" },
@@ -70,7 +70,7 @@ const agents = [
   },
   {
     icon: <BarChart3 className="h-8 w-8" />,
-    name: "DataInsight AI",
+    name: "Agente Datos IA",
     description: "Análisis de datos en lenguaje natural y automatizado.",
     stats: [
       { label: "Análisis automatizado", value: "Sí" },
@@ -80,7 +80,7 @@ const agents = [
   },
   {
     icon: <Users className="h-8 w-8" />,
-    name: "ClinicFlow AI",
+    name: "Agente Clínica IA",
     description: "Automatiza la confirmación y gestión de citas médicas.",
     stats: [
       { label: "Automatización de citas", value: "Sí" },
@@ -91,42 +91,42 @@ const agents = [
 ]
 
 const agentBenefits = {
-  "FinanceFlow": [
+  "Agente Contable IA": [
     "Ahorro de tiempo administrativo: -60%",
     "Precisión en reportes: +99.5%",
     "Alertas automáticas de pagos"
   ],
-  "MarketingWise AI": [
+  "Agente Marketing IA": [
     "Reducción de tiempo en creación de contenido: -70%",
     "Incremento del ROI en campañas: +35%",
     "Publicaciones programadas 24/7"
   ],
-  "ClientCare AI": [
+  "Agente Cliente IA": [
     "Reducción del tiempo de respuesta: -85%",
     "Satisfacción del cliente: +30%",
     "Soporte automatizado 24/7"
   ],
-  "TalentBot": [
+  "Agente Talento IA": [
     "Reducción del tiempo de contratación: -40%",
     "Satisfacción de candidatos: +25%",
     "Automatización de onboarding"
   ],
-  "LegalAssist AI": [
+  "Agente Legal IA": [
     "Reducción del tiempo de revisión: -75%",
     "Cumplimiento normativo: +99%",
     "Documentos legales listos al instante"
   ],
-  "OfficeAssist AI": [
+  "Agente Oficina IA": [
     "Productividad administrativa: +45%",
     "Reducción de errores: -90%",
     "Gestión documental automatizada"
   ],
-  "DataInsight AI": [
+  "Agente Datos IA": [
     "Análisis automatizado de datos: +80% más rápido",
     "Decisiones basadas en datos en minutos",
     "Reportes en lenguaje natural"
   ],
-  "ClinicFlow AI": [
+  "Agente Clínica IA": [
     "Reducción de ausencias a citas: -30%",
     "Automatización de recordatorios y seguimientos",
     "Encuestas post-visita automáticas"
@@ -135,9 +135,9 @@ const agentBenefits = {
 
 // Mapeo de detalles completos para cada agente
 const agentDetails: Record<string, { icon: string; title: string; description: string; bullets: string[]; resultados: string }> = {
-  "FinanceFlow": {
+  "Agente Contable IA": {
     icon: "💼",
-    title: "FinanceFlow: Agente de Contabilidad",
+    title: "Agente Contable IA: Agente de Contabilidad",
     description: "Optimiza tu gestión contable con un sistema que automatiza la generación de facturas, el seguimiento de ingresos y gastos, y la creación de informes financieros.",
     bullets: [
       "Emite facturas automáticamente.",
@@ -147,9 +147,9 @@ const agentDetails: Record<string, { icon: string; title: string; description: s
     ],
     resultados: "Ahorro de tiempo en tareas repetitivas y reducción de errores contables hasta en un 20%."
   },
-  "MarketingWise AI": {
+  "Agente Marketing IA": {
     icon: "📱",
-    title: "MarketingWise AI: Automatización de Contenido",
+    title: "Agente Marketing IA: Automatización de Contenido",
     description: "Planifica, genera y publica contenido en redes sociales de forma automática, con IA adaptada a tu marca.",
     bullets: [
       "Generación de textos e imágenes para RRSS.",
@@ -159,9 +159,9 @@ const agentDetails: Record<string, { icon: string; title: string; description: s
     ],
     resultados: "Mejora del engagement y reducción del tiempo de creación de contenido en más de un 60%."
   },
-  "ClientCare AI": {
+  "Agente Cliente IA": {
     icon: "💬",
-    title: "ClientCare AI: Atención al Cliente Inteligente",
+    title: "Agente Cliente IA: Atención al Cliente Inteligente",
     description: "Automatiza la gestión de correos y formularios con respuestas inteligentes y seguimiento continuo.",
     bullets: [
       "Lee e interpreta mensajes entrantes.",
@@ -171,9 +171,9 @@ const agentDetails: Record<string, { icon: string; title: string; description: s
     ],
     resultados: "Reduce los tiempos de respuesta hasta en un 50% y mejora la experiencia del cliente."
   },
-  "TalentBot": {
+  "Agente Talento IA": {
     icon: "👥",
-    title: "TalentBot: RRHH y Reclutamiento Automatizado",
+    title: "Agente Talento IA: RRHH y Reclutamiento Automatizado",
     description: "Transforma tu proceso de selección con IA que clasifica CVs, programa entrevistas y publica ofertas.",
     bullets: [
       "Filtrado automático de candidatos.",
@@ -183,9 +183,9 @@ const agentDetails: Record<string, { icon: string; title: string; description: s
     ],
     resultados: "Reduce en un 30% el tiempo de contratación y aumenta la calidad del talento seleccionado."
   },
-  "LegalAssist AI": {
+  "Agente Legal IA": {
     icon: "⚖️",
-    title: "LegalAssist AI: Soporte Legal Automatizado",
+    title: "Agente Legal IA: Soporte Legal Automatizado",
     description: "Gestión inteligente de documentos legales y consultas frecuentes.",
     bullets: [
       "Revisión de contratos estándar.",
@@ -195,9 +195,9 @@ const agentDetails: Record<string, { icon: string; title: string; description: s
     ],
     resultados: "Acelera procesos legales en un 40% y minimiza riesgos por omisiones."
   },
-  "OfficeAssist AI": {
+  "Agente Oficina IA": {
     icon: "📝",
-    title: "OfficeAssist AI: Asistente Administrativo",
+    title: "Agente Oficina IA: Asistente Administrativo",
     description: "Tu asistente virtual para tareas diarias de oficina.",
     bullets: [
       "Gestión de agendas y reuniones.",
@@ -207,9 +207,9 @@ const agentDetails: Record<string, { icon: string; title: string; description: s
     ],
     resultados: "Libera hasta un 20% del tiempo del equipo administrativo."
   },
-  "DataInsight AI": {
+  "Agente Datos IA": {
     icon: "📊",
-    title: "DataInsight AI: Análisis de Datos Automatizado",
+    title: "Agente Datos IA: Análisis de Datos Automatizado",
     description: "Obtén insights accionables con análisis de datos en lenguaje natural y reportes automáticos.",
     bullets: [
       "Conecta con tus fuentes de datos (Airtable, Google Sheets, etc.).",
@@ -219,9 +219,9 @@ const agentDetails: Record<string, { icon: string; title: string; description: s
     ],
     resultados: "Mejora la toma de decisiones y reduce los tiempos de análisis hasta en un 70%."
   },
-  "ClinicFlow AI": {
+  "Agente Clínica IA": {
     icon: "🏥",
-    title: "ClinicFlow AI: Automatización para Clínicas",
+    title: "Agente Clínica IA: Automatización para Clínicas",
     description: "Automatiza la confirmación y gestión de citas médicas, enviando recordatorios y mensajes por WhatsApp de forma totalmente automática.",
     bullets: [
       "Automatiza recordatorios y confirmaciones de cita (WhatsApp, email, SMS).",
